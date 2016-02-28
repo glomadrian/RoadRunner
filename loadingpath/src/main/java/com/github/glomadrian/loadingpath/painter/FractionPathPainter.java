@@ -4,18 +4,17 @@ import android.graphics.Canvas;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.view.View;
-import com.github.glomadrian.loadingpath.PathContainer;
-import com.github.glomadrian.loadingpath.painter.PathPainter;
+import com.github.glomadrian.loadingpath.path.PathContainer;
 
 /**
  * @author Adrián García Lomas
  */
-public abstract class FractionDashPathPainter implements PathPainter {
+public abstract class FractionPathPainter implements PathPainter {
 
   protected PathContainer pathData;
   protected View view;
 
-  public FractionDashPathPainter(PathContainer pathData, View view) {
+  public FractionPathPainter(PathContainer pathData, View view) {
     this.pathData = pathData;
     this.view = view;
   }

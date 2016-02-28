@@ -1,4 +1,4 @@
-package com.github.glomadrian.loadingpath;
+package com.github.glomadrian.loadingpath.path;
 
 /**
  * @author jorge

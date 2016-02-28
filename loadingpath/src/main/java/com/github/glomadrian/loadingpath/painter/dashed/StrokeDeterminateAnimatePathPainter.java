@@ -5,13 +5,13 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.View;
-import com.github.glomadrian.loadingpath.PathContainer;
-import com.github.glomadrian.loadingpath.painter.FractionDashPathPainter;
+import com.github.glomadrian.loadingpath.painter.FractionPathPainter;
+import com.github.glomadrian.loadingpath.path.PathContainer;
 
 /**
  * @author Adrián García Lomas
  */
-public class StrokeDeterminateAnimatePathPainter extends FractionDashPathPainter {
+public class StrokeDeterminateAnimatePathPainter extends FractionPathPainter {
 
   private float fractionA = 0f;
   private float fractionB = 1f;
@@ -36,13 +36,6 @@ public class StrokeDeterminateAnimatePathPainter extends FractionDashPathPainter
   public void paintPath(Canvas canvas) {
     drawPathInterval(canvas, fractionA, fractionB, paint);
   }
-
-  @Override
-  public void onViewSizeChange(int w, int h, int oldw, int oldh) {
-    valueAnimator.start();
-  }
-
-
 
   private class StrokeDetermianteAnimationUpdateListener
       implements ValueAnimator.AnimatorUpdateListener {
