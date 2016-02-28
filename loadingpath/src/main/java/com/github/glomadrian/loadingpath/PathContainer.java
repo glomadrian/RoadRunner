@@ -17,7 +17,9 @@ package com.github.glomadrian.loadingpath;
 
 import android.graphics.Path;
 
-public class PathData {
+public class PathContainer {
   public Path path;
   public float length;
+
+
 }

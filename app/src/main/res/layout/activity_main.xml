@@ -11,10 +11,18 @@
     tools:context="com.github.glomadrian.pathloading.MainActivity"
 >
 
-  <com.github.glomadrian.loadingpath.LoadingPath
+  <SeekBar
+      android:id="@+id/seek"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:max="100"
+
+  />
+  <com.github.glomadrian.loadingpath.DeterminateLoadingPath
+      android:padding="5dp"
       android:id="@+id/path"
       android:layout_centerInParent="true"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"/>
+      android:layout_width="300dp"
+      android:layout_height="300dp"/>
 
 </RelativeLayout>

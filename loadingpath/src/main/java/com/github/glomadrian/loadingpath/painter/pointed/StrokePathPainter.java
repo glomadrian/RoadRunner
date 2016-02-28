@@ -1,11 +1,11 @@
-package com.github.glomadrian.loadingpath.painter;
+package com.github.glomadrian.loadingpath.painter.pointed;
 
 import android.animation.ValueAnimator;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.view.View;
-import com.github.glomadrian.loadingpath.PathData;
+import com.github.glomadrian.loadingpath.PathContainer;
 import com.github.glomadrian.loadingpath.R;
 
 /**
@@ -24,12 +24,12 @@ public class StrokePathPainter extends FractionPathPainter {
   private int animationDuration;
   private Paint paint;
 
-  public StrokePathPainter(PathData pathData, View view) {
+  public StrokePathPainter(PathContainer pathData, View view) {
     super(pathData, view);
     init();
   }
 
-  public StrokePathPainter(PathData pathData, float strokeLength, View view) {
+  public StrokePathPainter(PathContainer pathData, float strokeLength, View view) {
     super(pathData, view);
     this.strokeLength = strokeLength;
     init();
@@ -59,7 +59,7 @@ public class StrokePathPainter extends FractionPathPainter {
     valueAnimator.setRepeatCount(ValueAnimator.INFINITE);
   }
 
-  private void initPaint(){
+  private void initPaint() {
     paint = new Paint();
     paint.setAntiAlias(true);
     paint.setColor(color);

@@ -1,4 +1,4 @@
-package com.github.glomadrian.loadingpath.painter;
+package com.github.glomadrian.loadingpath.painter.pointed;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -6,7 +6,8 @@ import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.graphics.Point;
 import android.view.View;
-import com.github.glomadrian.loadingpath.PathData;
+import com.github.glomadrian.loadingpath.PathContainer;
+import com.github.glomadrian.loadingpath.painter.PathPainter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,12 +18,12 @@ import java.util.List;
  */
 public abstract class FractionPathPainter implements PathPainter {
 
-  private PathData pathData;
+  protected PathContainer pathData;
   private List<Point> pathPoints;
   private float pointsToDraw = 1000f;
   private View view;
 
-  public FractionPathPainter(PathData pathData, View view) {
+  public FractionPathPainter(PathContainer pathData, View view) {
     this.pathData = pathData;
     this.view = view;
     init();
@@ -47,6 +48,7 @@ public abstract class FractionPathPainter implements PathPainter {
   }
 
   protected void drawPathFraction(Canvas canvas, float fraction, Paint paint) {
+
     Point point = obtainPoint(fraction);
     canvas.drawPoint(point.x, point.y, paint);
   }
@@ -85,16 +87,6 @@ public abstract class FractionPathPainter implements PathPainter {
     }
 
     return points;
-  }
-
-  /**
-   * Obtain the subPath fraction from the complete path using the init and end fraction
-   * @param initFraction
-   * @param endFraction
-   * @return
-   */
-  protected Path obtainPath(float initFraction, float endFraction){
-
   }
 
   /**
