@@ -16,12 +16,12 @@ import java.text.ParseException;
 public class IndeterminateLoadingPath extends LoadingPath {
 
   private static final String TAG = "IndeterminateLoading";
-  private int originalWidth = 512;
-  private int originalHeight = 512;
-  private String pathData = Paths.GITHUB;
+  private int originalWidth = 1024;
+  private int originalHeight = 1024;
+  private String pathData = Paths.WALLAPOP;
   private PathContainer pathContainer;
   private IndeterminatePathPainter pathPainter;
-  private String pathPainterSelected = PathLoadingPainterFactory.LOOP;
+  private String pathPainterSelected = PathLoadingPainterFactory.TWO_WAY;
 
   public IndeterminateLoadingPath(Context context) {
     super(context);
