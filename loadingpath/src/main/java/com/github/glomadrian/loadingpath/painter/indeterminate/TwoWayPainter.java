@@ -9,6 +9,7 @@ import android.view.animation.LinearInterpolator;
 import com.github.glomadrian.loadingpath.painter.IndeterminatePathPainter;
 import com.github.glomadrian.loadingpath.painter.PointPathPainter;
 import com.github.glomadrian.loadingpath.painter.configuration.Direction;
+import com.github.glomadrian.loadingpath.painter.configuration.TwoWayConfiguration;
 import com.github.glomadrian.loadingpath.path.PathContainer;
 
 /**
@@ -27,6 +28,7 @@ public class TwoWayPainter extends PointPathPainter implements IndeterminatePath
   //Movement line configuration
   private String movementDirection = Direction.LEFT;
   private int color = Color.RED;
+  private float strokeWidth = 10;
   private float zone = 0f;
   private int movementLoopTime = 5000;
   private float movementLineSize = 0.005f;
@@ -40,23 +42,22 @@ public class TwoWayPainter extends PointPathPainter implements IndeterminatePath
   private int leftLineStartDelayTime = 5000;
   private float leftLineMaxSize = 0.5f;
 
-  private TwoWayPainter(Builder builder) {
-    super(builder.pathContainer, builder.view);
-    movementDirection = builder.movementDirection;
-    color = builder.color;
-    movementLoopTime = builder.movementLoopTime;
-    rightLineLoopTime = builder.rightLineLoopTime;
-    movementLineSize = builder.movementLineSize;
-    rightLineStartDelayTime = builder.rightLineStartDelayTime;
-    rightLineMaxSize = builder.rightLineMaxSize;
-    leftLineLoopTime = builder.leftLineLoopTime;
-    leftLineStartDelayTime = builder.leftLineStartDelayTime;
-    leftLineMaxSize = builder.leftLineMaxSize;
-    init();
-  }
+  public TwoWayPainter(View view, PathContainer pathContainer,
+      TwoWayConfiguration twoWayConfiguration) {
+    super(pathContainer, view);
 
-  public static Builder newBuilder() {
-    return new Builder();
+    movementDirection = twoWayConfiguration.getMovementDirection();
+    color = twoWayConfiguration.getColor();
+    strokeWidth = twoWayConfiguration.getStrokeWidth();
+    movementLoopTime = twoWayConfiguration.getMovementLoopTime();
+    rightLineLoopTime = twoWayConfiguration.getRightLineLoopTime();
+    movementLineSize = twoWayConfiguration.getMovementLineSize();
+    rightLineStartDelayTime = twoWayConfiguration.getRightLineStartDelayTime();
+    rightLineMaxSize = twoWayConfiguration.getRightLineMaxSize();
+    leftLineLoopTime = twoWayConfiguration.getLeftLineLoopTime();
+    leftLineStartDelayTime = twoWayConfiguration.getLeftLineStartDelayTime();
+    leftLineMaxSize = twoWayConfiguration.getLeftLineMaxSize();
+    init();
   }
 
   private void init() {
@@ -72,7 +73,7 @@ public class TwoWayPainter extends PointPathPainter implements IndeterminatePath
   }
 
   private void initMovementAnimator() {
-    if (movementDirection.equals(Direction.LEFT)) {
+    if (movementDirection.equals(Direction.RIGHT)) {
       movementAnimator = ValueAnimator.ofFloat(0, 1);
     } else {
       movementAnimator = ValueAnimator.ofFloat(1, 0);
@@ -132,88 +133,6 @@ public class TwoWayPainter extends PointPathPainter implements IndeterminatePath
   public void restart() {
     stop();
     start();
-  }
-
-  public static final class Builder {
-    private View view;
-    private PathContainer pathContainer;
-    private String movementDirection = Direction.LEFT;
-    private int color = Color.RED;
-    private int movementLoopTime = 5000;
-    private float movementLineSize = 0.005f;
-    private int rightLineLoopTime = 5000;
-    private int rightLineStartDelayTime = 2000;
-    private float rightLineMaxSize = 0.5f;
-    private int leftLineLoopTime = 2000;
-    private int leftLineStartDelayTime = 5000;
-    private float leftLineMaxSize = 0.5f;
-
-    private Builder() {
-    }
-
-    public Builder withView(View val) {
-      view = val;
-      return this;
-    }
-
-    public Builder withPathContainer(PathContainer val) {
-      pathContainer = val;
-      return this;
-    }
-
-    public Builder withMovementDirection(String val) {
-      movementDirection = val;
-      return this;
-    }
-
-    public Builder withColor(int val) {
-      color = val;
-      return this;
-    }
-
-    public Builder withMovementLoopTime(int val) {
-      movementLoopTime = val;
-      return this;
-    }
-
-    public Builder withRightLineLoopTime(int val) {
-      rightLineLoopTime = val;
-      return this;
-    }
-
-    public Builder withMovementLineSize(float val) {
-      movementLineSize = val;
-      return this;
-    }
-
-    public Builder withRightLineStartDelayTime(int val) {
-      rightLineStartDelayTime = val;
-      return this;
-    }
-
-    public Builder withRightLineMaxSize(float val) {
-      rightLineMaxSize = val;
-      return this;
-    }
-
-    public Builder withLeftLineLoopTime(int val) {
-      leftLineLoopTime = val;
-      return this;
-    }
-
-    public Builder withLeftLineStartDelayTime(int val) {
-      leftLineStartDelayTime = val;
-      return this;
-    }
-
-    public Builder withLeftLineMaxSize(float val) {
-      leftLineMaxSize = val;
-      return this;
-    }
-
-    public TwoWayPainter build() {
-      return new TwoWayPainter(this);
-    }
   }
 
   private class MovementLineAnimatorUpdateListener implements ValueAnimator.AnimatorUpdateListener {
