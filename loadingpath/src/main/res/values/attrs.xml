@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <declare-styleable name="LoadingPath">
+
+    <!--ANIMATION-->
+    <attr name="path_animation_type" format="enum">
+      <enum name="material" value="0"/>
+      <enum name="twoWay" value="1"/>
+    </attr>
+
+    <!-- PATH -->
+    <attr name="path_data" format="string"/>
+    <attr name="path_original_width" format="dimension"/>
+    <attr name="path_original_height" format="dimension"/>
+
     <attr name="path_color" format="color"/>
-    <attr name="movement_direction" format="string"/>
+    <attr name="movement_direction" format="enum">
+      <enum name="clockwise" value="0"/>
+      <enum name="counter_clockwise" value="1"/>
+    </attr>
     <attr name="stroke_width" format="dimension"/>
     <attr name="movement_loop_time" format="integer"/>
     <attr name="line_size" format="float"/>

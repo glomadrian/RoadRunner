@@ -19,18 +19,33 @@
       android:layout_centerInParent="true"
       android:layout_width="300dp"
       android:layout_height="300dp"
-      lib:movement_loop_time="2000"
-      lib:movement_direction="right"
-      lib:path_color="@color/colorAccent"
-      lib:line_size="0.05"
-      lib:stroke_width="4sp"
-      lib:left_line_animation_time="0"
-      lib:left_line_max_size="0"
-      lib:left_line_animation_start_delay="0"
-      lib:right_line_animation_start_delay="0"
-      lib:right_line_max_size="0"
-      lib:right_line_animation_time="0"
-
+      lib:movement_direction="clockwise"
+      lib:path_color="#FFFFFF"
+      lib:stroke_width="5sp"
+      lib:path_data="@string/rock"
+      lib:path_original_width="@dimen/rock_original_width"
+      lib:path_original_height="@dimen/rock_original_height"
+      lib:path_animation_type="twoWay"
   />
+
+  <!--  <com.github.glomadrian.loadingpath.IndeterminateLoadingPath
+        android:padding="5dp"
+        android:id="@+id/path"
+        android:layout_centerInParent="true"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        lib:movement_loop_time="2000"
+        lib:movement_direction="right"
+        lib:path_color="@color/colorAccent"
+        lib:line_size="0.05"
+        lib:stroke_width="4sp"
+        lib:left_line_animation_time="0"
+        lib:left_line_max_size="0"
+        lib:left_line_animation_start_delay="0"
+        lib:right_line_animation_start_delay="0"
+        lib:right_line_max_size="0"
+        lib:right_line_animation_time="0"
+
+    />-->
 
 </RelativeLayout>

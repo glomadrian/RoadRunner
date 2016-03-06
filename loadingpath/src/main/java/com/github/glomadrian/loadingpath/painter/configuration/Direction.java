@@ -3,8 +3,19 @@ package com.github.glomadrian.loadingpath.painter.configuration;
 /**
  * @author Adrián García Lomas
  */
-public class Direction {
+public enum Direction {
+  CLOCKWISE(0), COUNTER_CLOCKWISE(1);
 
-  public static final String RIGHT = "right";
-  public static final String LEFT = "left";
+  int id;
+
+  Direction(int id) {
+    this.id = id;
+  }
+
+  public static Direction fromId(int id) {
+    for (Direction f : values()) {
+      if (f.id == id) return f;
+    }
+    throw new IllegalArgumentException();
+  }
 }

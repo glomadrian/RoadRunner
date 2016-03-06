@@ -1,4 +1,6 @@
-package com.github.glomadrian.loadingpath.painter;
+package com.github.glomadrian.loadingpath.painter.indeterminate;
+
+import com.github.glomadrian.loadingpath.painter.PathPainter;
 
 /**
  * Define how a path is painted

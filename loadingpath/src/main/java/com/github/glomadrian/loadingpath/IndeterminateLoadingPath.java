@@ -5,13 +5,13 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.util.Log;
-import com.github.glomadrian.loadingpath.painter.IndeterminatePathPainter;
 import com.github.glomadrian.loadingpath.painter.Painter;
 import com.github.glomadrian.loadingpath.painter.configuration.PathPainterConfiguration;
 import com.github.glomadrian.loadingpath.painter.configuration.PathPainterConfigurationFactory;
-import com.github.glomadrian.loadingpath.painter.indeterminate.MaterialPainter;
+import com.github.glomadrian.loadingpath.painter.indeterminate.IndeterminatePathPainter;
+import com.github.glomadrian.loadingpath.painter.indeterminate.factory.PathLoadingPainterFactory;
 import com.github.glomadrian.loadingpath.path.PathContainer;
-import com.github.glomadrian.loadingpath.path.Paths;
+import com.github.glomadrian.loadingpath.utils.AssertUtils;
 import java.text.ParseException;
 
 /**
@@ -20,38 +20,59 @@ import java.text.ParseException;
 public class IndeterminateLoadingPath extends LoadingPath {
 
   private static final String TAG = "IndeterminateLoading";
-  private int originalWidth = 1024;
-  private int originalHeight = 1024;
-  private String pathData = Paths.WALLAPOP;
+  private int originalWidth;
+  private int originalHeight;
+  private String pathData;
   private PathContainer pathContainer;
   private IndeterminatePathPainter pathPainter;
-  private Painter pathPainterSelected = Painter.LOOP;
+  private Painter pathPainterSelected = Painter.MATERIAL;
   private PathPainterConfiguration pathPainterConfiguration;
 
   public IndeterminateLoadingPath(Context context) {
     super(context);
+    throw new UnsupportedOperationException("The view can not be created programmatically yet");
   }
 
   public IndeterminateLoadingPath(Context context, AttributeSet attrs) {
     super(context, attrs);
+    initPath(attrs);
     initConfiguration(attrs);
   }
 
   public IndeterminateLoadingPath(Context context, AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
+    initPath(attrs);
     initConfiguration(attrs);
+  }
+
+  private void initPath(AttributeSet attrs) {
+    TypedArray attributes = getContext().obtainStyledAttributes(attrs, R.styleable.LoadingPath);
+    int animationValue = attributes.getInt(R.styleable.LoadingPath_path_animation_type, 0);
+    pathPainterSelected = Painter.fromId(animationValue);
+    pathData = attributes.getString(R.styleable.LoadingPath_path_data);
+    originalWidth = (int) attributes.getDimension(R.styleable.LoadingPath_path_original_width, 0);
+    originalHeight = (int) attributes.getDimension(R.styleable.LoadingPath_path_original_height, 0);
+
+    AssertUtils.assertThis(pathData != null, "Path data must be defined", this.getClass());
+    AssertUtils.assertThis(!pathData.isEmpty(), "Path data must be defined", this.getClass());
+    AssertUtils.assertThis(!pathData.equals(""), "Path data must be defined", this.getClass());
+    AssertUtils.assertThis(originalWidth > 0, "Original with of the path must be defined",
+        this.getClass());
+    AssertUtils.assertThis(originalHeight > 0, "Original height of the path must be defined",
+        this.getClass());
   }
 
   private void initConfiguration(AttributeSet attrs) {
     TypedArray attributes = getContext().obtainStyledAttributes(attrs, R.styleable.LoadingPath);
     pathPainterConfiguration =
-        PathPainterConfigurationFactory.makeConfiguration(attributes, Painter.TWO_WAY);
+        PathPainterConfigurationFactory.makeConfiguration(attributes, pathPainterSelected);
+    attributes.recycle();
   }
 
   private void initPathPainter() {
-    pathPainter = new MaterialPainter(pathContainer, this);
-    //PathLoadingPainterFactory.makeIndeterminatePathPainter(pathPainterSelected, pathContainer,
-    //    this, pathPainterConfiguration);
+    pathPainter =
+        PathLoadingPainterFactory.makeIndeterminatePathPainter(pathPainterSelected, pathContainer,
+            this, pathPainterConfiguration);
   }
 
   @Override

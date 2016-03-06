@@ -5,10 +5,11 @@ package com.github.glomadrian.loadingpath.painter.configuration;
  */
 public class TwoWayConfiguration extends PathPainterConfiguration {
 
+  protected int movementLoopTime;
+  protected float movementLineSize;
   private int rightLineLoopTime;
   private int rightLineStartDelayTime;
   private float rightLineMaxSize;
-
   private int leftLineLoopTime;
   private int leftLineStartDelayTime;
   private float leftLineMaxSize;
@@ -79,8 +80,24 @@ public class TwoWayConfiguration extends PathPainterConfiguration {
     this.leftLineMaxSize = leftLineMaxSize;
   }
 
+  public int getMovementLoopTime() {
+    return movementLoopTime;
+  }
+
+  public void setMovementLoopTime(int movementLoopTime) {
+    this.movementLoopTime = movementLoopTime;
+  }
+
+  public float getMovementLineSize() {
+    return movementLineSize;
+  }
+
+  public void setMovementLineSize(float movementLineSize) {
+    this.movementLineSize = movementLineSize;
+  }
+
   public static final class Builder {
-    private String movementDirection;
+    private Direction movementDirection;
     private int color;
     private float strokeWidth;
     private int movementLoopTime;
@@ -95,7 +112,7 @@ public class TwoWayConfiguration extends PathPainterConfiguration {
     private Builder() {
     }
 
-    public Builder withMovementDirection(String val) {
+    public Builder withMovementDirection(Direction val) {
       movementDirection = val;
       return this;
     }

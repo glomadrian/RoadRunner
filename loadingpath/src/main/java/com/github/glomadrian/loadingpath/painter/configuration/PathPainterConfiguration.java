@@ -3,19 +3,17 @@ package com.github.glomadrian.loadingpath.painter.configuration;
 /**
  * @author Adrián García Lomas
  */
-public class PathPainterConfiguration {
+public abstract class PathPainterConfiguration {
 
-  protected String movementDirection;
+  protected Direction movementDirection;
   protected int color;
   protected float strokeWidth;
-  protected int movementLoopTime;
-  protected float movementLineSize;
 
-  public String getMovementDirection() {
+  public Direction getMovementDirection() {
     return movementDirection;
   }
 
-  public void setMovementDirection(String movementDirection) {
+  public void setMovementDirection(Direction movementDirection) {
     this.movementDirection = movementDirection;
   }
 
@@ -33,21 +31,5 @@ public class PathPainterConfiguration {
 
   public void setStrokeWidth(float strokeWidth) {
     this.strokeWidth = strokeWidth;
-  }
-
-  public int getMovementLoopTime() {
-    return movementLoopTime;
-  }
-
-  public void setMovementLoopTime(int movementLoopTime) {
-    this.movementLoopTime = movementLoopTime;
-  }
-
-  public float getMovementLineSize() {
-    return movementLineSize;
-  }
-
-  public void setMovementLineSize(float movementLineSize) {
-    this.movementLineSize = movementLineSize;
   }
 }

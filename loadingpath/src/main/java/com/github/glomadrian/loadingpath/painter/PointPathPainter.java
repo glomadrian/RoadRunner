@@ -1,7 +1,6 @@
 package com.github.glomadrian.loadingpath.painter;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
@@ -29,13 +28,17 @@ public abstract class PointPathPainter implements PathPainter {
     points = obtainPoints(pathData.path);
   }
 
+  /**
+   * Given a path obtain the list of points
+   * This method make use of pointsNumber size
+   */
   private List<FloatPoint> obtainPoints(Path path) {
     List<FloatPoint> floatPoints = new ArrayList<>();
     for (float i = 0; i < pointsNumber; i++) {
       float fraction = i / pointsNumber;
 
-      float[] coords = getPathCoordinates(path, fraction);
-      FloatPoint point = new FloatPoint(coords[0], coords[1]);
+      float[] cords = getPathCoordinates(path, fraction);
+      FloatPoint point = new FloatPoint(cords[0], cords[1]);
       floatPoints.add(point);
     }
     return floatPoints;
@@ -54,7 +57,6 @@ public abstract class PointPathPainter implements PathPainter {
   protected void drawWithOffset(float zone, int pointsRight, int pointsLeft, float fixedPoints,
       Canvas canvas, Paint paint) {
     try {
-
       int position = getPositionForZone(zone);
       int firstPosition = (int) (position - pointsLeft - fixedPoints);
       int lastPosition = (int) (position + pointsRight + fixedPoints);
@@ -85,7 +87,7 @@ public abstract class PointPathPainter implements PathPainter {
       float[] pointsF = getArrayFloat(points.subList(firstPosition, lastPosition));
       canvas.drawPoints(pointsF, paint);
     } catch (Exception e) {
-      Log.e(TAG, "Skiped draw due to exception", e);
+      Log.e(TAG, "Skipped draw due to exception", e);
     }
   }
 
@@ -93,6 +95,9 @@ public abstract class PointPathPainter implements PathPainter {
     return (int) (zone * pointsNumber);
   }
 
+  /**
+   * Given a list of points obtain a float[] points to be draw using canvas.drawPoints() method
+   */
   protected float[] getArrayFloat(List<FloatPoint> points) {
     float[] floats = new float[points.size() * 2];
     for (int i = 0; i < points.size(); i += 2) {
@@ -102,6 +107,9 @@ public abstract class PointPathPainter implements PathPainter {
     return floats;
   }
 
+  /**
+   * Draw a point in canvas
+   */
   protected void drawPoint(FloatPoint point, Canvas canvas, Paint paint) {
     canvas.drawPoint(point.x, point.y, paint);
   }
@@ -114,6 +122,9 @@ public abstract class PointPathPainter implements PathPainter {
     return (int) (range * pointsNumber);
   }
 
+  /**
+   * Given a range and line size obtain the number of points to draw
+   */
   protected int getNumberOfLinePointsInRange(float range) {
     return (int) (range * maxLinePoints);
   }

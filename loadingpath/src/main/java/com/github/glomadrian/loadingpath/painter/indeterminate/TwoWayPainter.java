@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
-import com.github.glomadrian.loadingpath.painter.IndeterminatePathPainter;
 import com.github.glomadrian.loadingpath.painter.PointPathPainter;
 import com.github.glomadrian.loadingpath.painter.configuration.Direction;
 import com.github.glomadrian.loadingpath.painter.configuration.TwoWayConfiguration;
@@ -26,7 +25,7 @@ public class TwoWayPainter extends PointPathPainter implements IndeterminatePath
   private int movementLinePoints = 50;
 
   //Movement line configuration
-  private String movementDirection = Direction.LEFT;
+  private Direction movementDirection = Direction.COUNTER_CLOCKWISE;
   private int color = Color.RED;
   private float strokeWidth = 10;
   private float zone = 0f;
@@ -45,7 +44,11 @@ public class TwoWayPainter extends PointPathPainter implements IndeterminatePath
   public TwoWayPainter(View view, PathContainer pathContainer,
       TwoWayConfiguration twoWayConfiguration) {
     super(pathContainer, view);
+    initConfiguration(twoWayConfiguration);
+    init();
+  }
 
+  private void initConfiguration(TwoWayConfiguration twoWayConfiguration) {
     movementDirection = twoWayConfiguration.getMovementDirection();
     color = twoWayConfiguration.getColor();
     strokeWidth = twoWayConfiguration.getStrokeWidth();
@@ -57,7 +60,6 @@ public class TwoWayPainter extends PointPathPainter implements IndeterminatePath
     leftLineLoopTime = twoWayConfiguration.getLeftLineLoopTime();
     leftLineStartDelayTime = twoWayConfiguration.getLeftLineStartDelayTime();
     leftLineMaxSize = twoWayConfiguration.getLeftLineMaxSize();
-    init();
   }
 
   private void init() {
@@ -73,7 +75,7 @@ public class TwoWayPainter extends PointPathPainter implements IndeterminatePath
   }
 
   private void initMovementAnimator() {
-    if (movementDirection.equals(Direction.RIGHT)) {
+    if (movementDirection.equals(Direction.CLOCKWISE)) {
       movementAnimator = ValueAnimator.ofFloat(0, 1);
     } else {
       movementAnimator = ValueAnimator.ofFloat(1, 0);
