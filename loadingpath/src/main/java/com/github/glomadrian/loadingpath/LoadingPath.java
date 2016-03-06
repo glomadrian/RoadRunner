@@ -29,7 +29,7 @@ public abstract class LoadingPath extends View {
 
   protected PathContainer buildPathData(int viewWidth, int viewHeight, String pathData,
       int originalWidth, int originalHeight) throws ParseException {
-    Path path = parsePath(pathData, originalWidth, originalHeight, viewHeight, viewWidth);
+    Path path = parsePath(pathData, originalHeight, originalWidth, viewHeight, viewWidth);
     PathContainer pathContainer = new PathContainer();
     pathContainer.path = path;
     pathContainer.length = getPathLength(path);
