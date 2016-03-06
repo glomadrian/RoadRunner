@@ -38,8 +38,10 @@ public abstract class PointPathPainter implements PathPainter {
       float fraction = i / pointsNumber;
 
       float[] cords = getPathCoordinates(path, fraction);
-      FloatPoint point = new FloatPoint(cords[0], cords[1]);
-      floatPoints.add(point);
+      if (cords[0] != 0 && cords[1] != 0) {
+        FloatPoint point = new FloatPoint(cords[0], cords[1]);
+        floatPoints.add(point);
+      }
     }
     return floatPoints;
   }
@@ -85,6 +87,7 @@ public abstract class PointPathPainter implements PathPainter {
       }
 
       float[] pointsF = getArrayFloat(points.subList(firstPosition, lastPosition));
+
       canvas.drawPoints(pointsF, paint);
     } catch (Exception e) {
       Log.e(TAG, "Skipped draw due to exception", e);
@@ -100,9 +103,12 @@ public abstract class PointPathPainter implements PathPainter {
    */
   protected float[] getArrayFloat(List<FloatPoint> points) {
     float[] floats = new float[points.size() * 2];
-    for (int i = 0; i < points.size(); i += 2) {
-      floats[i] = points.get(i).x;
-      floats[i + 1] = points.get(i).y;
+    int iList = 0;
+
+    for (int i = 0; i < floats.length; i +=2) {
+      iList = i / 2;
+      floats[i] = points.get(iList).x;
+      floats[i + 1] = points.get(iList).y;
     }
     return floats;
   }
