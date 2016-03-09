@@ -13,20 +13,40 @@
     tools:context="com.github.glomadrian.pathloading.MainActivity"
 >
 
-  <com.github.glomadrian.loadingpath.IndeterminateLoadingPath
-      android:padding="5dp"
-      android:id="@+id/path"
-      android:layout_centerInParent="true"
+  <com.github.glomadrian.loadingpath.DeterminateLoadingPath
+      android:id="@+id/determinate"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       lib:movement_direction="clockwise"
-      lib:path_color="#FFFFFF"
-      lib:stroke_width="2sp"
-      lib:path_data="@string/soccer"
-      lib:path_original_width="@dimen/soccer_original_width"
-      lib:path_original_height="@dimen/soccer_original_height"
-      lib:path_animation_type="material"
-  />
+      lib:path_data="@string/twitter"
+      lib:path_original_width="@dimen/twitter_original_width"
+      lib:path_original_height="@dimen/twitter_original_height"
+      android:layout_below="@+id/seekBar" android:layout_alignParentLeft="true"
+      android:layout_alignParentStart="true"/>
+
+  <SeekBar
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/seekBar"
+      android:layout_margin="20dp"
+      android:layout_alignParentTop="true"
+      android:layout_centerHorizontal="true"/>
+  <!--
+    <com.github.glomadrian.loadingpath.IndeterminateLoadingPath
+        android:padding="5dp"
+        android:id="@+id/path"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        lib:movement_direction="clockwise"
+        lib:path_color="#FFFFFF"
+        lib:stroke_width="2sp"
+        lib:path_data="@string/soccer"
+        lib:path_original_width="@dimen/soccer_original_width"
+        lib:path_original_height="@dimen/soccer_original_height"
+        lib:path_animation_type="material"
+    />
+  -->
 
   <!--  <com.github.glomadrian.loadingpath.IndeterminateLoadingPath
         android:padding="5dp"
