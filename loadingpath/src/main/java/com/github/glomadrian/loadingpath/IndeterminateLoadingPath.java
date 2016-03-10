@@ -5,11 +5,11 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.util.Log;
-import com.github.glomadrian.loadingpath.painter.Painter;
+import com.github.glomadrian.loadingpath.painter.indeterminate.IndeterminatePainter;
 import com.github.glomadrian.loadingpath.painter.configuration.PathPainterConfiguration;
-import com.github.glomadrian.loadingpath.painter.configuration.PathPainterConfigurationFactory;
+import com.github.glomadrian.loadingpath.painter.configuration.factory.PathPainterConfigurationFactory;
 import com.github.glomadrian.loadingpath.painter.indeterminate.IndeterminatePathPainter;
-import com.github.glomadrian.loadingpath.painter.indeterminate.factory.PathLoadingPainterFactory;
+import com.github.glomadrian.loadingpath.painter.indeterminate.factory.IndeterminatePathLoadingPainterFactory;
 import com.github.glomadrian.loadingpath.path.PathContainer;
 import com.github.glomadrian.loadingpath.utils.AssertUtils;
 import java.text.ParseException;
@@ -25,7 +25,7 @@ public class IndeterminateLoadingPath extends LoadingPath {
   private String pathData;
   private PathContainer pathContainer;
   private IndeterminatePathPainter pathPainter;
-  private Painter pathPainterSelected = Painter.MATERIAL;
+  private IndeterminatePainter pathIndeterminatePainterSelected = IndeterminatePainter.MATERIAL;
   private PathPainterConfiguration pathPainterConfiguration;
 
   public IndeterminateLoadingPath(Context context) {
@@ -48,7 +48,7 @@ public class IndeterminateLoadingPath extends LoadingPath {
   private void initPath(AttributeSet attrs) {
     TypedArray attributes = getContext().obtainStyledAttributes(attrs, R.styleable.LoadingPath);
     int animationValue = attributes.getInt(R.styleable.LoadingPath_path_animation_type, 0);
-    pathPainterSelected = Painter.fromId(animationValue);
+    pathIndeterminatePainterSelected = IndeterminatePainter.fromId(animationValue);
     pathData = attributes.getString(R.styleable.LoadingPath_path_data);
     originalWidth = (int) attributes.getDimension(R.styleable.LoadingPath_path_original_width, 0);
     originalHeight = (int) attributes.getDimension(R.styleable.LoadingPath_path_original_height, 0);
@@ -65,13 +65,14 @@ public class IndeterminateLoadingPath extends LoadingPath {
   private void initConfiguration(AttributeSet attrs) {
     TypedArray attributes = getContext().obtainStyledAttributes(attrs, R.styleable.LoadingPath);
     pathPainterConfiguration =
-        PathPainterConfigurationFactory.makeConfiguration(attributes, pathPainterSelected);
+        PathPainterConfigurationFactory.makeConfiguration(attributes,
+            pathIndeterminatePainterSelected);
     attributes.recycle();
   }
 
   private void initPathPainter() {
     pathPainter =
-        PathLoadingPainterFactory.makeIndeterminatePathPainter(pathPainterSelected, pathContainer,
+        IndeterminatePathLoadingPainterFactory.makeIndeterminatePathPainter(pathIndeterminatePainterSelected, pathContainer,
             this, pathPainterConfiguration);
   }
 

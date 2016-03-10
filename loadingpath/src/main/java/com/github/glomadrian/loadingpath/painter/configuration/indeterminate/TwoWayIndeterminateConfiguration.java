@@ -1,9 +1,12 @@
-package com.github.glomadrian.loadingpath.painter.configuration;
+package com.github.glomadrian.loadingpath.painter.configuration.indeterminate;
+
+import com.github.glomadrian.loadingpath.painter.configuration.Direction;
+import com.github.glomadrian.loadingpath.painter.configuration.PathPainterConfiguration;
 
 /**
  * @author Adrián García Lomas
  */
-public class TwoWayConfiguration extends PathPainterConfiguration {
+public class TwoWayIndeterminateConfiguration extends PathPainterConfiguration {
 
   protected int movementLoopTime;
   protected float movementLineSize;
@@ -14,7 +17,7 @@ public class TwoWayConfiguration extends PathPainterConfiguration {
   private int leftLineStartDelayTime;
   private float leftLineMaxSize;
 
-  private TwoWayConfiguration(Builder builder) {
+  private TwoWayIndeterminateConfiguration(Builder builder) {
     setMovementDirection(builder.movementDirection);
     setColor(builder.color);
     setStrokeWidth(builder.strokeWidth);
@@ -167,8 +170,8 @@ public class TwoWayConfiguration extends PathPainterConfiguration {
       return this;
     }
 
-    public TwoWayConfiguration build() {
-      return new TwoWayConfiguration(this);
+    public TwoWayIndeterminateConfiguration build() {
+      return new TwoWayIndeterminateConfiguration(this);
     }
   }
 }

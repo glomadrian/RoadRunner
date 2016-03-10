@@ -10,7 +10,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import com.github.glomadrian.loadingpath.painter.PointPathPainter;
 import com.github.glomadrian.loadingpath.painter.configuration.Direction;
-import com.github.glomadrian.loadingpath.painter.configuration.MaterialPainterConfiguration;
+import com.github.glomadrian.loadingpath.painter.configuration.indeterminate.MaterialPainterConfiguration;
 import com.github.glomadrian.loadingpath.path.PathContainer;
 
 /**

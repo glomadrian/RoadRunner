@@ -9,5 +9,11 @@ import android.graphics.Canvas;
  */
 public interface PathPainter {
 
+  void start();
+
+  void stop();
+
+  void restart();
+
   void paintPath(Canvas canvas);
 }

@@ -8,13 +8,13 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.github.glomadrian.loadingpath.painter.PointPathPainter;
 import com.github.glomadrian.loadingpath.painter.configuration.Direction;
-import com.github.glomadrian.loadingpath.painter.configuration.TwoWayConfiguration;
+import com.github.glomadrian.loadingpath.painter.configuration.indeterminate.TwoWayIndeterminateConfiguration;
 import com.github.glomadrian.loadingpath.path.PathContainer;
 
 /**
  * @author Adrián García Lomas
  */
-public class TwoWayPainter extends PointPathPainter implements IndeterminatePathPainter {
+public class TwoWayIndeterminatePainter extends PointPathPainter implements IndeterminatePathPainter {
 
   private ValueAnimator movementAnimator;
   private ValueAnimator leftLineAnimator;
@@ -41,25 +41,25 @@ public class TwoWayPainter extends PointPathPainter implements IndeterminatePath
   private int leftLineStartDelayTime = 5000;
   private float leftLineMaxSize = 0.5f;
 
-  public TwoWayPainter(View view, PathContainer pathContainer,
-      TwoWayConfiguration twoWayConfiguration) {
+  public TwoWayIndeterminatePainter(View view, PathContainer pathContainer,
+      TwoWayIndeterminateConfiguration twoWayIndeterminateConfiguration) {
     super(pathContainer, view);
-    initConfiguration(twoWayConfiguration);
+    initConfiguration(twoWayIndeterminateConfiguration);
     init();
   }
 
-  private void initConfiguration(TwoWayConfiguration twoWayConfiguration) {
-    movementDirection = twoWayConfiguration.getMovementDirection();
-    color = twoWayConfiguration.getColor();
-    strokeWidth = twoWayConfiguration.getStrokeWidth();
-    movementLoopTime = twoWayConfiguration.getMovementLoopTime();
-    rightLineLoopTime = twoWayConfiguration.getRightLineLoopTime();
-    movementLineSize = twoWayConfiguration.getMovementLineSize();
-    rightLineStartDelayTime = twoWayConfiguration.getRightLineStartDelayTime();
-    rightLineMaxSize = twoWayConfiguration.getRightLineMaxSize();
-    leftLineLoopTime = twoWayConfiguration.getLeftLineLoopTime();
-    leftLineStartDelayTime = twoWayConfiguration.getLeftLineStartDelayTime();
-    leftLineMaxSize = twoWayConfiguration.getLeftLineMaxSize();
+  private void initConfiguration(TwoWayIndeterminateConfiguration twoWayIndeterminateConfiguration) {
+    movementDirection = twoWayIndeterminateConfiguration.getMovementDirection();
+    color = twoWayIndeterminateConfiguration.getColor();
+    strokeWidth = twoWayIndeterminateConfiguration.getStrokeWidth();
+    movementLoopTime = twoWayIndeterminateConfiguration.getMovementLoopTime();
+    rightLineLoopTime = twoWayIndeterminateConfiguration.getRightLineLoopTime();
+    movementLineSize = twoWayIndeterminateConfiguration.getMovementLineSize();
+    rightLineStartDelayTime = twoWayIndeterminateConfiguration.getRightLineStartDelayTime();
+    rightLineMaxSize = twoWayIndeterminateConfiguration.getRightLineMaxSize();
+    leftLineLoopTime = twoWayIndeterminateConfiguration.getLeftLineLoopTime();
+    leftLineStartDelayTime = twoWayIndeterminateConfiguration.getLeftLineStartDelayTime();
+    leftLineMaxSize = twoWayIndeterminateConfiguration.getLeftLineMaxSize();
   }
 
   private void init() {

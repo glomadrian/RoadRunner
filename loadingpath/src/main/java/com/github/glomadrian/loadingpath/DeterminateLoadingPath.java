@@ -5,7 +5,14 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.util.Log;
-import com.github.glomadrian.loadingpath.painter.determinate.CircularLinePainter;
+import com.github.glomadrian.loadingpath.painter.determinate.DeterminatePainter;
+import com.github.glomadrian.loadingpath.painter.determinate.DeterminatePathPainter;
+import com.github.glomadrian.loadingpath.painter.determinate.factory.DeterminatePathLoadingPainterFactory;
+import com.github.glomadrian.loadingpath.painter.indeterminate.IndeterminatePainter;
+import com.github.glomadrian.loadingpath.painter.configuration.PathPainterConfiguration;
+import com.github.glomadrian.loadingpath.painter.configuration.factory.PathPainterConfigurationFactory;
+import com.github.glomadrian.loadingpath.painter.determinate.TwoWayDeterminatePainter;
+import com.github.glomadrian.loadingpath.painter.indeterminate.factory.IndeterminatePathLoadingPainterFactory;
 import com.github.glomadrian.loadingpath.path.PathContainer;
 import com.github.glomadrian.loadingpath.utils.AssertUtils;
 import com.github.glomadrian.loadingpath.utils.RangeUtils;
@@ -21,10 +28,11 @@ public class DeterminateLoadingPath extends LoadingPath {
   private int originalHeight;
   private String pathData;
   private PathContainer pathContainer;
-  private CircularLinePainter circularLinePainter;
+  private DeterminatePathPainter twoWayDeterminatePainter;
   private int min = 0;
   private int max = 100;
   private int value;
+  private PathPainterConfiguration pathPainterConfiguration;
 
   public DeterminateLoadingPath(Context context) {
     super(context);
@@ -34,11 +42,13 @@ public class DeterminateLoadingPath extends LoadingPath {
   public DeterminateLoadingPath(Context context, AttributeSet attrs) {
     super(context, attrs);
     initPath(attrs);
+    initConfiguration(attrs);
   }
 
   public DeterminateLoadingPath(Context context, AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
     initPath(attrs);
+    initConfiguration(attrs);
   }
 
   private void initPath(AttributeSet attrs) {
@@ -56,6 +66,13 @@ public class DeterminateLoadingPath extends LoadingPath {
         this.getClass());
   }
 
+  private void initConfiguration(AttributeSet attrs) {
+    TypedArray attributes = getContext().obtainStyledAttributes(attrs, R.styleable.LoadingPath);
+    pathPainterConfiguration =
+        PathPainterConfigurationFactory.makeConfiguration(attributes, DeterminatePainter.TWO_WAY);
+    attributes.recycle();
+  }
+
   @Override
   protected void onSizeChanged(int w, int h, int oldw, int oldh) {
     super.onSizeChanged(w, h, oldw, oldh);
@@ -65,16 +82,17 @@ public class DeterminateLoadingPath extends LoadingPath {
     } catch (ParseException e) {
       Log.e(TAG, "Path parse exception:", e);
     }
-    circularLinePainter.start();
+    twoWayDeterminatePainter.start();
   }
 
   private void initPathPainter() {
-    circularLinePainter = new CircularLinePainter(pathContainer, this);
+    twoWayDeterminatePainter = DeterminatePathLoadingPainterFactory.makeIndeterminatePathPainter(
+        DeterminatePainter.TWO_WAY, pathContainer, this, pathPainterConfiguration);
   }
 
   @Override
   protected void onDraw(Canvas canvas) {
-    circularLinePainter.paintPath(canvas);
+    twoWayDeterminatePainter.paintPath(canvas);
   }
 
   public int getMin() {
@@ -97,7 +115,10 @@ public class DeterminateLoadingPath extends LoadingPath {
     if (value <= max || value >= min) {
       this.value = value;
       float progress = RangeUtils.getFloatValueInRange(min, max, 0f, 1f, value);
-      circularLinePainter.setProgress(progress);
+      if(twoWayDeterminatePainter!=null){
+        twoWayDeterminatePainter.setProgress(progress);
+      }
+
     }
   }
 }

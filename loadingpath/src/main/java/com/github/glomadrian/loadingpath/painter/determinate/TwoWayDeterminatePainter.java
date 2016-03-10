@@ -8,13 +8,14 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.github.glomadrian.loadingpath.painter.PointPathPainter;
 import com.github.glomadrian.loadingpath.painter.configuration.Direction;
+import com.github.glomadrian.loadingpath.painter.configuration.determinate.TwoWayDeterminateConfiguration;
 import com.github.glomadrian.loadingpath.painter.indeterminate.IndeterminatePathPainter;
 import com.github.glomadrian.loadingpath.path.PathContainer;
 
 /**
  * @author Adrián García Lomas
  */
-public class CircularLinePainter extends PointPathPainter
+public class TwoWayDeterminatePainter extends PointPathPainter
     implements DeterminatePathPainter, IndeterminatePathPainter {
 
   private ValueAnimator movementAnimator;
@@ -28,17 +29,20 @@ public class CircularLinePainter extends PointPathPainter
   private float movementLineSize = 0.03f;
   private float sideIncrementSize = 0f;
 
-  public CircularLinePainter(PathContainer pathData, View view) {
+  public TwoWayDeterminatePainter(PathContainer pathData, View view,
+      TwoWayDeterminateConfiguration twoWayDeterminateConfiguration) {
     super(pathData, view);
-    initConfiguration();
+    initConfiguration(twoWayDeterminateConfiguration);
     init();
   }
 
-  private void initConfiguration() {
-    movementDirection = Direction.CLOCKWISE;
-    color = Color.RED;
-    strokeWidth = 15;
-    movementLinePoints = getNumberOfLinePointsInRange(movementLineSize);
+  private void initConfiguration(TwoWayDeterminateConfiguration twoWayDeterminateConfiguration) {
+    movementDirection = twoWayDeterminateConfiguration.getMovementDirection();
+    color = twoWayDeterminateConfiguration.getColor();
+    strokeWidth = twoWayDeterminateConfiguration.getStrokeWidth();
+    movementLinePoints =
+        getNumberOfLinePointsInRange(twoWayDeterminateConfiguration.getMovementLineSize());
+    movementLoopTime = twoWayDeterminateConfiguration.getMovementLoopTime();
   }
 
   private void init() {

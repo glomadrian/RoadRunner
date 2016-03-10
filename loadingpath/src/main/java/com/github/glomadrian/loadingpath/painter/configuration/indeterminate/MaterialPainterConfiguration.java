@@ -1,4 +1,7 @@
-package com.github.glomadrian.loadingpath.painter.configuration;
+package com.github.glomadrian.loadingpath.painter.configuration.indeterminate;
+
+import com.github.glomadrian.loadingpath.painter.configuration.Direction;
+import com.github.glomadrian.loadingpath.painter.configuration.PathPainterConfiguration;
 
 /**
  * @author Adrián García Lomas
