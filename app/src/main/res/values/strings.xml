@@ -1,3 +1,4 @@
 <resources>
   <string name="app_name">PathLoading</string>
+  <string name="drag_sample">Drag</string>
 </resources>

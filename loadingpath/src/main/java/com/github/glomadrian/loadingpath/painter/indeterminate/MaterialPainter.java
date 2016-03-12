@@ -3,12 +3,11 @@ package com.github.glomadrian.loadingpath.painter.indeterminate;
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
-import com.github.glomadrian.loadingpath.painter.PointPathPainter;
+import com.github.glomadrian.loadingpath.painter.LoadingPathPainter;
 import com.github.glomadrian.loadingpath.painter.configuration.Direction;
 import com.github.glomadrian.loadingpath.painter.configuration.indeterminate.MaterialPainterConfiguration;
 import com.github.glomadrian.loadingpath.path.PathContainer;
@@ -16,20 +15,14 @@ import com.github.glomadrian.loadingpath.path.PathContainer;
 /**
  * @author Adrián García Lomas
  */
-public class MaterialPainter extends PointPathPainter implements IndeterminatePathPainter {
+public class MaterialPainter extends LoadingPathPainter implements IndeterminatePathPainter {
 
   private static final String TAG = "MaterialPainter";
   private ValueAnimator movementAnimator;
   private ValueAnimator frontValueAnimator;
   private ValueAnimator backValueAnimator;
-  private Paint paint;
-  private int color = Color.WHITE;
-  private float strokeWidth = 20;
-  private float zone = 0f;
   private int movementLoopTime = 3000;
   private float movementLineSize = 0.07f;
-  private int movementLinePoints = 50;
-  private Direction movementDirection = Direction.CLOCKWISE;
   //Front
   private int frontOffset = 0;
   private float sideIncrementSize = 0.7f;

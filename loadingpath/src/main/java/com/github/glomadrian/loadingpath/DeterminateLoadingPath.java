@@ -5,14 +5,11 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.util.Log;
+import com.github.glomadrian.loadingpath.painter.configuration.PathPainterConfiguration;
+import com.github.glomadrian.loadingpath.painter.configuration.factory.PathPainterConfigurationFactory;
 import com.github.glomadrian.loadingpath.painter.determinate.DeterminatePainter;
 import com.github.glomadrian.loadingpath.painter.determinate.DeterminatePathPainter;
 import com.github.glomadrian.loadingpath.painter.determinate.factory.DeterminatePathLoadingPainterFactory;
-import com.github.glomadrian.loadingpath.painter.indeterminate.IndeterminatePainter;
-import com.github.glomadrian.loadingpath.painter.configuration.PathPainterConfiguration;
-import com.github.glomadrian.loadingpath.painter.configuration.factory.PathPainterConfigurationFactory;
-import com.github.glomadrian.loadingpath.painter.determinate.TwoWayDeterminatePainter;
-import com.github.glomadrian.loadingpath.painter.indeterminate.factory.IndeterminatePathLoadingPainterFactory;
 import com.github.glomadrian.loadingpath.path.PathContainer;
 import com.github.glomadrian.loadingpath.utils.AssertUtils;
 import com.github.glomadrian.loadingpath.utils.RangeUtils;
@@ -33,6 +30,7 @@ public class DeterminateLoadingPath extends LoadingPath {
   private int max = 100;
   private int value;
   private PathPainterConfiguration pathPainterConfiguration;
+  private boolean animateOnStart = true;
 
   public DeterminateLoadingPath(Context context) {
     super(context);
@@ -56,6 +54,7 @@ public class DeterminateLoadingPath extends LoadingPath {
     pathData = attributes.getString(R.styleable.LoadingPath_path_data);
     originalWidth = (int) attributes.getDimension(R.styleable.LoadingPath_path_original_width, 0);
     originalHeight = (int) attributes.getDimension(R.styleable.LoadingPath_path_original_height, 0);
+    animateOnStart = attributes.getBoolean(R.styleable.LoadingPath_animate_on_start, true);
 
     AssertUtils.assertThis(pathData != null, "Path data must be defined", this.getClass());
     AssertUtils.assertThis(!pathData.isEmpty(), "Path data must be defined", this.getClass());
@@ -82,7 +81,9 @@ public class DeterminateLoadingPath extends LoadingPath {
     } catch (ParseException e) {
       Log.e(TAG, "Path parse exception:", e);
     }
-    twoWayDeterminatePainter.start();
+    if (animateOnStart) {
+      twoWayDeterminatePainter.start();
+    }
   }
 
   private void initPathPainter() {
@@ -115,10 +116,13 @@ public class DeterminateLoadingPath extends LoadingPath {
     if (value <= max || value >= min) {
       this.value = value;
       float progress = RangeUtils.getFloatValueInRange(min, max, 0f, 1f, value);
-      if(twoWayDeterminatePainter!=null){
+      if (twoWayDeterminatePainter != null) {
         twoWayDeterminatePainter.setProgress(progress);
       }
-
     }
+  }
+
+  public void setPosition(float position) {
+    twoWayDeterminatePainter.setPosition(position);
   }
 }

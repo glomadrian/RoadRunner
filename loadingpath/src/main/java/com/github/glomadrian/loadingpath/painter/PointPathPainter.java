@@ -103,7 +103,7 @@ public abstract class PointPathPainter implements PathPainter {
    */
   protected float[] getArrayFloat(List<FloatPoint> points) {
     float[] floats = new float[points.size() * 2];
-    int iList = 0;
+    int iList;
 
     for (int i = 0; i < floats.length; i +=2) {
       iList = i / 2;

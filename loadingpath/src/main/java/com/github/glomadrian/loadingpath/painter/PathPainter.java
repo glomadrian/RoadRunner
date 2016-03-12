@@ -16,4 +16,6 @@ public interface PathPainter {
   void restart();
 
   void paintPath(Canvas canvas);
+
+  void setPosition(float position);
 }

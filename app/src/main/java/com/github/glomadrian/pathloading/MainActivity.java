@@ -1,37 +1,43 @@
 package com.github.glomadrian.pathloading;
 
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.SeekBar;
-import com.github.glomadrian.loadingpath.DeterminateLoadingPath;
+import android.view.Gravity;
+import android.widget.FrameLayout;
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import com.github.glomadrian.pathloading.ui.dragview.DragViewFragment;
 
 public class MainActivity extends AppCompatActivity {
 
   private static final String TAG = "MainActivity";
-  private DeterminateLoadingPath determinateLoadingPath;
-  private SeekBar seekBar;
+  @Bind(R.id.drawer_layout)
+  DrawerLayout drawerLayout;
+  @Bind(R.id.content_frame)
+  FrameLayout content;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    determinateLoadingPath = (DeterminateLoadingPath) findViewById(R.id.determinate);
-    seekBar = (SeekBar) findViewById(R.id.seekBar);
-    seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-      @Override
-      public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        determinateLoadingPath.setValue(progress);
-      }
+    ButterKnife.bind(this);
+  }
 
-      @Override
-      public void onStartTrackingTouch(SeekBar seekBar) {
+  @OnClick(R.id.drag_nav_action)
+  public void dragNavActionTouch() {
+    showDragView();
+    closeNav();
+  }
 
-      }
+  private void closeNav() {
+    drawerLayout.closeDrawer(Gravity.LEFT);
+  }
 
-      @Override
-      public void onStopTrackingTouch(SeekBar seekBar) {
-
-      }
-    });
+  private void showDragView() {
+    getSupportFragmentManager().beginTransaction()
+        .replace(R.id.content_frame, DragViewFragment.newInstance())
+        .commit();
   }
 }

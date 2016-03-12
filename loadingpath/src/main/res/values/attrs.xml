@@ -8,6 +8,8 @@
       <enum name="twoWay" value="1"/>
     </attr>
 
+    <attr name="animate_on_start" format="boolean"/>
+
     <!-- PATH -->
     <attr name="path_data" format="string"/>
     <attr name="path_original_width" format="dimension"/>

@@ -32,4 +32,5 @@ public abstract class PathPainterConfiguration {
   public void setStrokeWidth(float strokeWidth) {
     this.strokeWidth = strokeWidth;
   }
+
 }

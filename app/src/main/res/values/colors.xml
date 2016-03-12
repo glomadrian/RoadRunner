@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <color name="colorPrimary">#3F51B5</color>
-  <color name="colorPrimaryDark">#303F9F</color>
-  <color name="colorAccent">#FF4081</color>
+  <color name="nav_bg">#585858</color>
+  <color name="nav_text_color">#cccccc</color>
+  <color name="white_50">#FAFAFA</color>
+  <color name="blue_500">#2196F3</color>
+
+  <color name="colorPrimary">#00BCD4</color>
+  <color name="colorPrimaryDark">#0097A7</color>
+  <color name="colorAccent">#FFC107</color>
+  <color name="detail_vertical_line_color">#727272</color>
+  <color name="comic_detail_year">@color/colorAccent</color>
+  <color name="comic_title_bar">#c8000000</color>
+  <color name="comic_title_bar_text">@color/colorAccent</color>
+  <color name="user_name_color">#FFF</color>
+  <color name="avatar_bg_color">#ca00BCD4</color>
+  <color name="drawable_bg_color">#383838</color>
 </resources>

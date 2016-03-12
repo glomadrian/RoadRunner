@@ -15,6 +15,7 @@ import java.text.ParseException;
  */
 public abstract class LoadingPath extends View {
 
+
   public LoadingPath(Context context) {
     super(context);
   }

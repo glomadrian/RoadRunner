@@ -2,11 +2,10 @@ package com.github.glomadrian.loadingpath.painter.indeterminate;
 
 import android.animation.ValueAnimator;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
-import com.github.glomadrian.loadingpath.painter.PointPathPainter;
+import com.github.glomadrian.loadingpath.painter.LoadingPathPainter;
 import com.github.glomadrian.loadingpath.painter.configuration.Direction;
 import com.github.glomadrian.loadingpath.painter.configuration.indeterminate.TwoWayIndeterminateConfiguration;
 import com.github.glomadrian.loadingpath.path.PathContainer;
@@ -14,21 +13,14 @@ import com.github.glomadrian.loadingpath.path.PathContainer;
 /**
  * @author Adrián García Lomas
  */
-public class TwoWayIndeterminatePainter extends PointPathPainter implements IndeterminatePathPainter {
+public class TwoWayIndeterminatePainter extends LoadingPathPainter
+    implements IndeterminatePathPainter {
 
   private ValueAnimator movementAnimator;
   private ValueAnimator leftLineAnimator;
   private ValueAnimator rightLineAnimator;
   private int offsetRight = 0;
   private int offsetLeft = 0;
-  private Paint paint;
-  private int movementLinePoints = 50;
-
-  //Movement line configuration
-  private Direction movementDirection = Direction.COUNTER_CLOCKWISE;
-  private int color = Color.RED;
-  private float strokeWidth = 10;
-  private float zone = 0f;
   private int movementLoopTime = 5000;
   private float movementLineSize = 0.005f;
 
@@ -48,7 +40,8 @@ public class TwoWayIndeterminatePainter extends PointPathPainter implements Inde
     init();
   }
 
-  private void initConfiguration(TwoWayIndeterminateConfiguration twoWayIndeterminateConfiguration) {
+  private void initConfiguration(
+      TwoWayIndeterminateConfiguration twoWayIndeterminateConfiguration) {
     movementDirection = twoWayIndeterminateConfiguration.getMovementDirection();
     color = twoWayIndeterminateConfiguration.getColor();
     strokeWidth = twoWayIndeterminateConfiguration.getStrokeWidth();

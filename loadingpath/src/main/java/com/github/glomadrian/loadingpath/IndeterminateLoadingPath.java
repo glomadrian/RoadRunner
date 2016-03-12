@@ -5,9 +5,9 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.util.Log;
-import com.github.glomadrian.loadingpath.painter.indeterminate.IndeterminatePainter;
 import com.github.glomadrian.loadingpath.painter.configuration.PathPainterConfiguration;
 import com.github.glomadrian.loadingpath.painter.configuration.factory.PathPainterConfigurationFactory;
+import com.github.glomadrian.loadingpath.painter.indeterminate.IndeterminatePainter;
 import com.github.glomadrian.loadingpath.painter.indeterminate.IndeterminatePathPainter;
 import com.github.glomadrian.loadingpath.painter.indeterminate.factory.IndeterminatePathLoadingPainterFactory;
 import com.github.glomadrian.loadingpath.path.PathContainer;
@@ -27,6 +27,7 @@ public class IndeterminateLoadingPath extends LoadingPath {
   private IndeterminatePathPainter pathPainter;
   private IndeterminatePainter pathIndeterminatePainterSelected = IndeterminatePainter.MATERIAL;
   private PathPainterConfiguration pathPainterConfiguration;
+  private boolean animateOnStart = true;
 
   public IndeterminateLoadingPath(Context context) {
     super(context);
@@ -52,6 +53,7 @@ public class IndeterminateLoadingPath extends LoadingPath {
     pathData = attributes.getString(R.styleable.LoadingPath_path_data);
     originalWidth = (int) attributes.getDimension(R.styleable.LoadingPath_path_original_width, 0);
     originalHeight = (int) attributes.getDimension(R.styleable.LoadingPath_path_original_height, 0);
+    animateOnStart = attributes.getBoolean(R.styleable.LoadingPath_animate_on_start, true);
 
     AssertUtils.assertThis(pathData != null, "Path data must be defined", this.getClass());
     AssertUtils.assertThis(!pathData.isEmpty(), "Path data must be defined", this.getClass());
@@ -72,7 +74,8 @@ public class IndeterminateLoadingPath extends LoadingPath {
 
   private void initPathPainter() {
     pathPainter =
-        IndeterminatePathLoadingPainterFactory.makeIndeterminatePathPainter(pathIndeterminatePainterSelected, pathContainer,
+        IndeterminatePathLoadingPainterFactory.makeIndeterminatePathPainter(
+            pathIndeterminatePainterSelected, pathContainer,
             this, pathPainterConfiguration);
   }
 
@@ -85,7 +88,9 @@ public class IndeterminateLoadingPath extends LoadingPath {
     } catch (ParseException e) {
       Log.e(TAG, "Path parse exception:", e);
     }
-    pathPainter.start();
+    if (animateOnStart) {
+      pathPainter.start();
+    }
   }
 
   /**

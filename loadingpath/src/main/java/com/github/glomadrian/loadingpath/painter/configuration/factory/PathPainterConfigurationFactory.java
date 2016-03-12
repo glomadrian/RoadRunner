@@ -4,9 +4,9 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import com.github.glomadrian.loadingpath.R;
 import com.github.glomadrian.loadingpath.painter.configuration.Direction;
-import com.github.glomadrian.loadingpath.painter.configuration.indeterminate.MaterialPainterConfiguration;
 import com.github.glomadrian.loadingpath.painter.configuration.PathPainterConfiguration;
 import com.github.glomadrian.loadingpath.painter.configuration.determinate.TwoWayDeterminateConfiguration;
+import com.github.glomadrian.loadingpath.painter.configuration.indeterminate.MaterialPainterConfiguration;
 import com.github.glomadrian.loadingpath.painter.configuration.indeterminate.TwoWayIndeterminateConfiguration;
 import com.github.glomadrian.loadingpath.painter.determinate.DeterminatePainter;
 import com.github.glomadrian.loadingpath.painter.indeterminate.IndeterminatePainter;
@@ -98,6 +98,7 @@ public class PathPainterConfigurationFactory {
     float strokeWidth = typedArray.getDimension(R.styleable.LoadingPath_stroke_width, 10);
     int movementLoopTime = typedArray.getInt(R.styleable.LoadingPath_movement_loop_time, 4000);
     float lineSize = typedArray.getFloat(R.styleable.LoadingPath_line_size, 0.05f);
+
     TwoWayDeterminateConfiguration twoWayDeterminateConfiguration =
         TwoWayDeterminateConfiguration.newBuilder()
             .withColor(color)

@@ -20,6 +20,4 @@ import android.graphics.Path;
 public class PathContainer {
   public Path path;
   public float length;
-
-
 }
