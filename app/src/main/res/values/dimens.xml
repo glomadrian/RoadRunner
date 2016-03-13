@@ -4,4 +4,7 @@
   <dimen name="activity_vertical_margin">16dp</dimen>
   <dimen name="navigation_width">260dp</dimen>
   <dimen name="nav_text">16sp</dimen>
+  <dimen name="info_text">17sp</dimen>
+  <dimen name="info_text_margin">10dp</dimen>
+  <dimen name="determinate_progress_text_size">20sp</dimen>
 </resources>

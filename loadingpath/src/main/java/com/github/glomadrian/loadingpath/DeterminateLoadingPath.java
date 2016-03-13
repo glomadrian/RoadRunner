@@ -67,6 +67,8 @@ public class DeterminateLoadingPath extends LoadingPath {
 
   private void initConfiguration(AttributeSet attrs) {
     TypedArray attributes = getContext().obtainStyledAttributes(attrs, R.styleable.LoadingPath);
+    min = attributes.getInteger(R.styleable.LoadingPath_min, 0);
+    max = attributes.getInteger(R.styleable.LoadingPath_max, 100);
     pathPainterConfiguration =
         PathPainterConfigurationFactory.makeConfiguration(attributes, DeterminatePainter.TWO_WAY);
     attributes.recycle();
@@ -124,5 +126,13 @@ public class DeterminateLoadingPath extends LoadingPath {
 
   public void setPosition(float position) {
     twoWayDeterminatePainter.setPosition(position);
+  }
+
+  public void start() {
+    twoWayDeterminatePainter.start();
+  }
+
+  public void stop() {
+    twoWayDeterminatePainter.stop();
   }
 }

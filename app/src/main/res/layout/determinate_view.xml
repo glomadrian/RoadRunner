@@ -6,24 +6,44 @@
     android:id="@+id/drag_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#13C1AC"
+    android:background="@color/determinate_view_bg"
     tools:context="com.github.glomadrian.pathloading.MainActivity"
 >
 
-  <com.github.glomadrian.loadingpath.DeterminateLoadingPath
-      android:id="@+id/determinate"
-      android:layout_width="match_parent"
+  <RelativeLayout android:layout_width="match_parent"
       android:layout_height="match_parent"
-      lib:movement_direction="clockwise"
-      lib:path_color="#FFFFFF"
-      lib:stroke_width="1sp"
-      lib:movement_loop_time="2000"
-      lib:path_data="@string/newyork"
-      lib:path_original_width="@dimen/newyork_original_width"
-      lib:path_original_height="@dimen/newyork_original_height"
-      lib:animate_on_start="false"
       android:layout_alignParentLeft="true"
-      android:layout_alignParentStart="true" android:layout_above="@+id/frameLayout"/>
+      android:layout_alignParentStart="true"
+      android:layout_above="@+id/frameLayout"
+  >
+
+    <com.github.glomadrian.loadingpath.DeterminateLoadingPath
+        android:id="@+id/determinate"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="30dp"
+        lib:min="0"
+        lib:max="100"
+        lib:movement_direction="counter_clockwise"
+        lib:path_color="@color/colorAccent"
+        lib:stroke_width="2sp"
+        lib:movement_loop_time="1500"
+        lib:path_data="@string/cloud"
+        lib:path_original_width="@dimen/cloud_original_width"
+        lib:path_original_height="@dimen/cloud_original_height"
+        lib:animate_on_start="false"
+    />
+
+    <TextView
+        android:id="@+id/progress_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+
+        android:textSize="@dimen/determinate_progress_text_size"
+        android:layout_centerInParent="true"/>
+
+  </RelativeLayout>
 
   <FrameLayout
       android:layout_width="match_parent"
@@ -44,9 +64,9 @@
     />
   </FrameLayout>
 
-  <com.github.glomadrian.pathloading.ui.MediaFavButton
-      android:id="@+id/media_action"
-      android:src="@android:drawable/ic_media_play"
+  <android.support.design.widget.FloatingActionButton
+      android:id="@+id/download_action"
+      android:src="@drawable/web"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginBottom="-30dp"

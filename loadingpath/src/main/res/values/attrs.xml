@@ -2,6 +2,10 @@
 <resources>
   <declare-styleable name="LoadingPath">
 
+    <!--DETERMINATE-->
+    <attr name="min" format="integer"/>
+    <attr name="max" format="integer"/>
+
     <!--ANIMATION-->
     <attr name="path_animation_type" format="enum">
       <enum name="material" value="0"/>

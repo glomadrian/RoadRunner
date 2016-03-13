@@ -1,65 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+
+<android.support.design.widget.NavigationView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/left_drawer"
-    android:layout_width="@dimen/navigation_width"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:layout_gravity="start"
-    android:background="@color/drawable_bg_color"
-    android:clickable="true"
->
-  <RelativeLayout
-      android:id="@+id/user_info"
-      android:layout_width="match_parent"
-      android:layout_height="200dp"
-      android:background="@color/blue_500"
-  >
-    <ImageView
-        android:id="@+id/avatar_background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/yo"
-        android:scaleType="centerCrop"
-    />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/avatar_bg_color"
-    ></FrameLayout>
-
-    <com.github.glomadrian.pathloading.ui.CircleImageView
-        android:id="@+id/avatar"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_centerInParent="true"
-        android:src="@drawable/yo"
-    />
-
-    <TextView
-        android:id="@+id/user_name"
-        android:layout_margin="10dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/avatar"
-        android:textColor="@color/user_name_color"
-        android:text="Adrian Garcia Lomas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-    />
-  </RelativeLayout>
-
-  <LinearLayout android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:layout_below="@+id/user_info">
-
-    <TextView
-        android:id="@+id/drag_nav_action"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:text="@string/drag_sample"
-        android:gravity="center_horizontal|center_vertical"
-        android:padding="10dp"
-        android:textSize="@dimen/nav_text"
-        android:textColor="@color/nav_text_color"
-    />
-  </LinearLayout>
-</RelativeLayout>
+    app:headerLayout="@layout/nav_header"
+    app:menu="@menu/nav_menu"/>

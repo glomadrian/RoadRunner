@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -13,6 +12,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.github.glomadrian.loadingpath.DeterminateLoadingPath;
 import com.github.glomadrian.pathloading.R;
+import com.github.glomadrian.pathloading.ui.MediaFavButton;
 import com.github.glomadrian.pathloading.utils.RangeUtils;
 
 /**
@@ -24,6 +24,8 @@ public class DragViewFragment extends Fragment {
   DeterminateLoadingPath determinateLoadingPath;
   @Bind(R.id.drag_view)
   View dragView;
+  @Bind(R.id.media_action)
+  MediaFavButton mediaFavButton;
 
   @Nullable @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
@@ -31,11 +33,10 @@ public class DragViewFragment extends Fragment {
     return inflater.inflate(R.layout.drag_view, container, false);
   }
 
-
   @Override public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
     ButterKnife.bind(this, getActivity());
-
+    prepareMediaButton();
 
     view.setOnGenericMotionListener(new View.OnGenericMotionListener() {
       @Override public boolean onGenericMotion(View v, MotionEvent event) {
@@ -54,7 +55,8 @@ public class DragViewFragment extends Fragment {
 
         switch (event.getAction()) {
           case MotionEvent.ACTION_MOVE:
-            float animationPosition = RangeUtils.getFloatValueInRange(0, view.getHeight(), 0f, 1f, y);
+            float animationPosition =
+                RangeUtils.getFloatValueInRange(0, view.getHeight(), 0f, 1f, y);
             float animationValue = RangeUtils.getFloatValueInRange(0, view.getWidth(), 0, 100, x);
             Log.i("asd", "onTouch: " + animationPosition);
             determinateLoadingPath.setPosition(animationPosition);
@@ -66,7 +68,17 @@ public class DragViewFragment extends Fragment {
     });
   }
 
+  private void prepareMediaButton() {
+    mediaFavButton.setMediaFavButtonListener(new MediaFavButton.MediaFavButtonListener() {
+      @Override public void onPlayAction() {
+        determinateLoadingPath.start();
+      }
 
+      @Override public void onStopAction() {
+        determinateLoadingPath.stop();
+      }
+    });
+  }
 
   public static DragViewFragment newInstance() {
 

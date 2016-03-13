@@ -15,4 +15,5 @@
   <color name="user_name_color">#FFF</color>
   <color name="avatar_bg_color">#ca00BCD4</color>
   <color name="drawable_bg_color">#383838</color>
+  <color name="determinate_view_bg">#383838</color>
 </resources>

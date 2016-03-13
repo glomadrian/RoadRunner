@@ -1,4 +1,8 @@
 <resources>
   <string name="app_name">PathLoading</string>
   <string name="drag_sample">Drag</string>
+  <string name="determinate_sample">Determinate</string>
+  <string name="drag_sample_info">Touch over y axis to change the loading position and over X axis
+    to change the size
+  </string>
 </resources>

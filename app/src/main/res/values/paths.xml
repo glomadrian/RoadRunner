@@ -517,4 +517,15 @@
 
   <dimen name="newyork_original_width">500px</dimen>
   <dimen name="newyork_original_height">500px</dimen>
+
+  <string name="cloud">
+    M27.586,14.212 C26.66,11.751,24.284,10,21.5,10
+    C20.859,10,20.24,10.093,19.654,10.266 C18.068,7.705,15.233,6,12,6
+    C7.095,6,3.107,9.924,3.002,14.803 C1.208,15.842,0,17.783,0,20
+    C0,23.312,2.687,26,6,26 L26,26 C29.312,26,32,23.307,32,20
+    C32,17.234,30.13,14.907,27.586,14.212 Z
+  </string>
+  <dimen name="cloud_original_width">32px</dimen>
+  <dimen name="cloud_original_height">32px</dimen>
+
 </resources>

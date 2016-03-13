@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/user_info"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@color/blue_500"
+>
+  <ImageView
+      android:id="@+id/avatar_background"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:src="@drawable/yo"
+      android:scaleType="centerCrop"
+  />
+
+  <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@color/avatar_bg_color"
+  ></FrameLayout>
+
+  <com.github.glomadrian.pathloading.ui.CircleImageView
+      android:id="@+id/avatar"
+      android:layout_width="90dp"
+      android:layout_height="90dp"
+      android:layout_centerInParent="true"
+      android:src="@drawable/yo"
+  />
+
+  <TextView
+      android:id="@+id/user_name"
+      android:layout_margin="10dp"
+      android:layout_centerHorizontal="true"
+      android:layout_below="@id/avatar"
+      android:textColor="@color/user_name_color"
+      android:text="Adrian Garcia Lomas"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+  />
+</RelativeLayout>
