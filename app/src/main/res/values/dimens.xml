@@ -6,5 +6,5 @@
   <dimen name="nav_text">16sp</dimen>
   <dimen name="info_text">17sp</dimen>
   <dimen name="info_text_margin">10dp</dimen>
-  <dimen name="determinate_progress_text_size">20sp</dimen>
+  <dimen name="determinate_progress_text_size">25sp</dimen>
 </resources>

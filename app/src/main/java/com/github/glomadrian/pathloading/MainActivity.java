@@ -9,8 +9,11 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import com.github.glomadrian.pathloading.ui.determinateview.DeterminateViewFragment;
-import com.github.glomadrian.pathloading.ui.dragview.DragViewFragment;
+import com.github.glomadrian.pathloading.ui.determinate.DeterminateViewFragment;
+import com.github.glomadrian.pathloading.ui.drag.DragViewFragment;
+import com.github.glomadrian.pathloading.ui.home.HomeViewFragment;
+import com.github.glomadrian.pathloading.ui.material.MaterialViewFragment;
+import com.github.glomadrian.pathloading.ui.twoway.TwoWayView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
     ButterKnife.bind(this);
     initNavigationView();
+    showHomeView();
   }
 
   private void initNavigationView() {
@@ -35,11 +39,20 @@ public class MainActivity extends AppCompatActivity {
         new NavigationView.OnNavigationItemSelectedListener() {
           @Override public boolean onNavigationItemSelected(MenuItem item) {
             switch (item.getItemId()) {
+              case R.id.home:
+                showHomeView();
+                return true;
               case R.id.drag_sample:
                 dragSampleMenuTouch();
                 return true;
               case R.id.determinate_sample:
-                dragDeterminateSampleMenuTouch();
+                determinateSampleMenuTouch();
+                return true;
+              case R.id.material_sample:
+                materialSampleMenuTouch();
+                return true;
+              case R.id.two_way_sample:
+                twoWaylSampleMenuTouch();
                 return true;
             }
             return false;
@@ -52,8 +65,18 @@ public class MainActivity extends AppCompatActivity {
     closeNav();
   }
 
-  private void dragDeterminateSampleMenuTouch() {
+  private void determinateSampleMenuTouch() {
     showDeterminateView();
+    closeNav();
+  }
+
+  private void materialSampleMenuTouch() {
+    showMaterialView();
+    closeNav();
+  }
+
+  private void twoWaylSampleMenuTouch() {
+    showTwoWayView();
     closeNav();
   }
 
@@ -70,6 +93,30 @@ public class MainActivity extends AppCompatActivity {
   private void showDeterminateView() {
     getSupportFragmentManager().beginTransaction()
         .replace(R.id.content_frame, DeterminateViewFragment.newInstance())
+        .commit();
+  }
+
+  private void showMaterialView() {
+    getSupportFragmentManager().beginTransaction()
+        .replace(R.id.content_frame, MaterialViewFragment.newInstance())
+        .commit();
+  }
+
+  private void showTwoWayView() {
+    getSupportFragmentManager().beginTransaction()
+        .replace(R.id.content_frame, TwoWayView.newInstance())
+        .commit();
+  }
+
+  private void showHomeView() {
+    HomeViewFragment homeViewFragment = HomeViewFragment.newInstance();
+    homeViewFragment.setFinishLoadingListener(new HomeViewFragment.FinishLoadingListener() {
+      @Override public void onLoadingFinish() {
+        drawerLayout.openDrawer(Gravity.LEFT);
+      }
+    });
+    getSupportFragmentManager().beginTransaction()
+        .replace(R.id.content_frame, homeViewFragment)
         .commit();
   }
 }

@@ -15,7 +15,6 @@ import java.text.ParseException;
  */
 public abstract class LoadingPath extends View {
 
-
   public LoadingPath(Context context) {
     super(context);
   }
@@ -60,4 +59,6 @@ public abstract class LoadingPath extends View {
     }
     return pathLength;
   }
+
+  abstract void setColor(int color);
 }

@@ -49,6 +49,11 @@ public class DeterminateLoadingPath extends LoadingPath {
     initConfiguration(attrs);
   }
 
+  @Override
+  public void setColor(int color) {
+    twoWayDeterminatePainter.setColor(color);
+  }
+
   private void initPath(AttributeSet attrs) {
     TypedArray attributes = getContext().obtainStyledAttributes(attrs, R.styleable.LoadingPath);
     pathData = attributes.getString(R.styleable.LoadingPath_path_data);

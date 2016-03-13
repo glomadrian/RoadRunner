@@ -18,4 +18,6 @@ public interface PathPainter {
   void paintPath(Canvas canvas);
 
   void setPosition(float position);
+
+  void setColor(int color);
 }

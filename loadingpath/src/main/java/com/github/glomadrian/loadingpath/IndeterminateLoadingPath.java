@@ -46,6 +46,11 @@ public class IndeterminateLoadingPath extends LoadingPath {
     initConfiguration(attrs);
   }
 
+  @Override
+  public void setColor(int color) {
+    pathPainter.setColor(color);
+  }
+
   private void initPath(AttributeSet attrs) {
     TypedArray attributes = getContext().obtainStyledAttributes(attrs, R.styleable.LoadingPath);
     int animationValue = attributes.getInt(R.styleable.LoadingPath_path_animation_type, 0);
@@ -99,5 +104,17 @@ public class IndeterminateLoadingPath extends LoadingPath {
   @Override
   protected void onDraw(Canvas canvas) {
     pathPainter.paintPath(canvas);
+  }
+
+  public void start() {
+    pathPainter.start();
+  }
+
+  public void stop() {
+    pathPainter.stop();
+  }
+
+  public void restart() {
+    pathPainter.restart();
   }
 }

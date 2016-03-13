@@ -10,7 +10,7 @@
       android:id="@+id/avatar_background"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:src="@drawable/yo"
+      android:src="@drawable/roadrunnerunning"
       android:scaleType="centerCrop"
   />
 
@@ -25,7 +25,7 @@
       android:layout_width="90dp"
       android:layout_height="90dp"
       android:layout_centerInParent="true"
-      android:src="@drawable/yo"
+      android:src="@drawable/roadrunner"
   />
 
   <TextView
@@ -34,7 +34,7 @@
       android:layout_centerHorizontal="true"
       android:layout_below="@id/avatar"
       android:textColor="@color/user_name_color"
-      android:text="Adrian Garcia Lomas"
+      android:text="Road Runner"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
   />

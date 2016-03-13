@@ -37,6 +37,7 @@ public abstract class LoadingPathPainter extends PointPathPainter {
 
   public void setColor(int color) {
     this.color = color;
+    this.paint.setColor(color);
   }
 
   public float getStrokeWidth() {
@@ -63,4 +64,5 @@ public abstract class LoadingPathPainter extends PointPathPainter {
       Direction movementDirection) {
     this.movementDirection = movementDirection;
   }
+
 }

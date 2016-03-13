@@ -76,6 +76,7 @@ public class TwoWayDeterminatePainter extends LoadingPathPainter
   public void setProgress(float value) {
     if (value < 1F && value > 0) {
       sideIncrementSize = value;
+      view.invalidate();
     }
   }
 

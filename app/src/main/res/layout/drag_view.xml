@@ -6,7 +6,7 @@
     android:id="@+id/drag_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#13C1AC"
+    android:background="@color/drag_view_bg"
     tools:context="com.github.glomadrian.pathloading.MainActivity"
 >
 

@@ -1,4 +1,4 @@
-package com.github.glomadrian.pathloading.ui.dragview;
+package com.github.glomadrian.pathloading.ui.drag;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

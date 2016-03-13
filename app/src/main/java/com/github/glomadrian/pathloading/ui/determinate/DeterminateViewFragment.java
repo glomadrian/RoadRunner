@@ -1,4 +1,4 @@
-package com.github.glomadrian.pathloading.ui.determinateview;
+package com.github.glomadrian.pathloading.ui.determinate;
 
 import android.animation.ValueAnimator;
 import android.os.Bundle;
@@ -38,7 +38,7 @@ public class DeterminateViewFragment extends Fragment {
     ButterKnife.bind(this, getActivity());
 
     progressAnimator = ValueAnimator.ofInt(0, 100).setDuration(DOWNLOAD_TIME);
-    progressAnimator.setStartDelay(800);
+    progressAnimator.setStartDelay(1200);
     progressAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
       @Override public void onAnimationUpdate(ValueAnimator animation) {
         int value = (Integer) animation.getAnimatedValue();

@@ -2,11 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
   <group android:checkableBehavior="single">
     <item
-        android:id="@+id/drag_sample"
+        android:id="@+id/home"
         android:checked="true"
+        android:title="@string/app_name"/>
+    <item
+        android:id="@+id/drag_sample"
         android:title="@string/drag_sample"/>
     <item
         android:id="@+id/determinate_sample"
         android:title="@string/determinate_sample"/>
+    <item
+        android:id="@+id/material_sample"
+        android:title="@string/material_sample"/>
+    <item
+        android:id="@+id/two_way_sample"
+        android:title="@string/two_way"/>
   </group>
 </menu>

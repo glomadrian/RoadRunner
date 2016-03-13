@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lib="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/home_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <com.github.glomadrian.loadingpath.DeterminateLoadingPath
+      android:id="@+id/determinate"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_margin="10dp"
+      lib:movement_direction="counter_clockwise"
+      lib:path_color="@color/colorAccent"
+      lib:stroke_width="2sp"
+      lib:min="0"
+      lib:max="1000"
+      lib:path_data="@string/roadrunner"
+      lib:path_original_width="@dimen/roadrunner_original_width"
+      lib:path_original_height="@dimen/roadrunner_original_height"
+      lib:animate_on_start="false"
+
+  />
+
+</LinearLayout>

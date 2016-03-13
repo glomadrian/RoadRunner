@@ -1,8 +1,14 @@
 <resources>
-  <string name="app_name">PathLoading</string>
+  <string name="app_name">Road Runner Sample</string>
   <string name="drag_sample">Drag</string>
   <string name="determinate_sample">Determinate</string>
   <string name="drag_sample_info">Touch over y axis to change the loading position and over X axis
     to change the size
   </string>
+  <string name="determinate_sample_info">Simulate a download using a determinate path
+    loading
+  </string>
+  <string name="material_sample_info">A material loading sample using path</string>
+  <string name="material_sample">Material</string>
+  <string name="two_way">Two Way</string>
 </resources>

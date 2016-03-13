@@ -1,42 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:lib="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/drag_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/determinate_view_bg"
-    tools:context="com.github.glomadrian.pathloading.MainActivity"
+    android:background="@color/material_view_bg"
+
 >
 
-
-  <com.github.glomadrian.loadingpath.DeterminateLoadingPath
-      android:id="@+id/determinate"
+  <com.github.glomadrian.loadingpath.IndeterminateLoadingPath
+      android:padding="5dp"
+      android:id="@+id/material"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      lib:min="0"
-      lib:max="100"
       lib:movement_direction="counter_clockwise"
-      lib:path_color="@color/colorAccent"
-      lib:stroke_width="2sp"
-      lib:movement_loop_time="1500"
-      lib:path_data="@string/clip"
-      lib:path_original_width="@dimen/clip_original_width"
-      lib:path_original_height="@dimen/clip_original_height"
-      lib:animate_on_start="false"
-      android:layout_marginLeft="30dp" android:layout_marginRight="30dp"
-      android:layout_marginTop="30dp" android:layout_above="@+id/download_action"/>
-
-  <TextView
-      android:id="@+id/progress_text"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:textColor="@color/colorAccent"
-      android:textSize="@dimen/determinate_progress_text_size"
+      lib:path_color="#FFFFFF"
+      lib:stroke_width="3sp"
+      lib:path_data="@string/wallapop"
+      lib:path_original_width="@dimen/wallapop_original_width"
+      lib:path_original_height="@dimen/wallapop_original_height"
+      lib:path_animation_type="material"
       android:layout_centerHorizontal="true"
-      android:paddingTop="20dp"
-  />
+      android:layout_above="@+id/frameLayout"/>
 
 
   <FrameLayout
@@ -49,7 +34,7 @@
 
     <TextView android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/determinate_sample_info"
+        android:text="@string/material_sample_info"
         android:textStyle="italic"
         android:textColor="@color/white_50"
         android:layout_margin="@dimen/info_text_margin"
@@ -59,8 +44,8 @@
   </FrameLayout>
 
   <android.support.design.widget.FloatingActionButton
-      android:id="@+id/download_action"
-      android:src="@drawable/web"
+      android:id="@+id/media_action"
+      android:src="@drawable/reload"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginBottom="-30dp"
@@ -68,6 +53,5 @@
       android:layout_above="@+id/frameLayout"
       android:layout_alignParentRight="true"
       android:layout_alignParentEnd="true"/>
-
 
 </RelativeLayout>

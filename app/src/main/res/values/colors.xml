@@ -16,4 +16,9 @@
   <color name="avatar_bg_color">#ca00BCD4</color>
   <color name="drawable_bg_color">#383838</color>
   <color name="determinate_view_bg">#383838</color>
+  <color name="drag_view_bg">#673AB7</color>
+  <color name="material_view_bg">#22C5B1</color>
+  <color name="two_way">#585858</color>
+  <color name="two_way_bg">@color/white_50</color>
+  <color name="home_bg">#4A148C</color>
 </resources>
