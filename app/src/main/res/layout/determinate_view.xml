@@ -22,8 +22,8 @@
       lib:stroke_width="2sp"
       lib:movement_loop_time="1500"
       lib:path_data="@string/clip"
-      lib:path_original_width="@dimen/clip_original_width"
-      lib:path_original_height="@dimen/clip_original_height"
+      lib:path_original_width="@integer/clip_original_width"
+      lib:path_original_height="@integer/clip_original_height"
       lib:animate_on_start="false"
       android:layout_marginLeft="30dp" android:layout_marginRight="30dp"
       android:layout_marginTop="30dp" android:layout_above="@+id/download_action"/>

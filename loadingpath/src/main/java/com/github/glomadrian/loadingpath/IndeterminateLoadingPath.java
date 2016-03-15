@@ -56,8 +56,8 @@ public class IndeterminateLoadingPath extends LoadingPath {
     int animationValue = attributes.getInt(R.styleable.LoadingPath_path_animation_type, 0);
     pathIndeterminatePainterSelected = IndeterminatePainter.fromId(animationValue);
     pathData = attributes.getString(R.styleable.LoadingPath_path_data);
-    originalWidth = (int) attributes.getDimension(R.styleable.LoadingPath_path_original_width, 0);
-    originalHeight = (int) attributes.getDimension(R.styleable.LoadingPath_path_original_height, 0);
+    originalWidth = attributes.getInteger(R.styleable.LoadingPath_path_original_width, 0);
+    originalHeight = attributes.getInteger(R.styleable.LoadingPath_path_original_height, 0);
     animateOnStart = attributes.getBoolean(R.styleable.LoadingPath_animate_on_start, true);
 
     AssertUtils.assertThis(pathData != null, "Path data must be defined", this.getClass());

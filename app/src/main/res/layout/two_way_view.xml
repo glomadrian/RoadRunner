@@ -28,8 +28,8 @@
       lib:right_line_max_size="0.5"
       lib:right_line_animation_time="2000"
       lib:path_data="@string/github"
-      lib:path_original_width="@dimen/github_original_width"
-      lib:path_original_height="@dimen/github_original_height"
+      lib:path_original_width="@integer/github_original_width"
+      lib:path_original_height="@integer/github_original_height"
       lib:path_animation_type="twoWay"
 
       android:layout_alignParentRight="true"

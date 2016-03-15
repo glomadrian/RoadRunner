@@ -16,9 +16,9 @@
       lib:movement_direction="counter_clockwise"
       lib:path_color="#FFFFFF"
       lib:stroke_width="3sp"
-      lib:path_data="@string/wallapop"
-      lib:path_original_width="@dimen/wallapop_original_width"
-      lib:path_original_height="@dimen/wallapop_original_height"
+      lib:path_data="@string/twitter"
+      lib:path_original_width="@integer/twitter_original_width"
+      lib:path_original_height="@integer/twitter_original_height"
       lib:path_animation_type="material"
       android:layout_centerHorizontal="true"
       android:layout_above="@+id/frameLayout"/>

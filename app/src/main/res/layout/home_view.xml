@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:lib="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/home_bg"
@@ -8,19 +8,29 @@
 
   <com.github.glomadrian.loadingpath.DeterminateLoadingPath
       android:id="@+id/determinate"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:layout_margin="10dp"
+      android:layout_width="300dp"
+      android:layout_height="300dp"
       lib:movement_direction="counter_clockwise"
+      lib:movement_loop_time="2000"
       lib:path_color="@color/colorAccent"
       lib:stroke_width="2sp"
       lib:min="0"
       lib:max="1000"
       lib:path_data="@string/roadrunner"
-      lib:path_original_width="@dimen/roadrunner_original_width"
-      lib:path_original_height="@dimen/roadrunner_original_height"
-      lib:animate_on_start="false"
+      lib:path_original_width="@integer/roadrunner_original_width"
+      lib:path_original_height="@integer/roadrunner_original_height"
+      lib:animate_on_start="true"
 
-  />
+      android:layout_marginTop="44dp" android:layout_alignParentTop="true"
+      android:layout_centerHorizontal="true"/>
 
-</LinearLayout>
+  <ImageView
+      android:id="@+id/text_image"
+      android:layout_width="300dp"
+      android:layout_height="wrap_content"
+      android:src="@drawable/roadrunnertext"
+      android:visibility="invisible"
+      android:layout_below="@+id/determinate" android:layout_alignLeft="@+id/determinate"
+      android:layout_alignStart="@+id/determinate"/>
+
+</RelativeLayout>

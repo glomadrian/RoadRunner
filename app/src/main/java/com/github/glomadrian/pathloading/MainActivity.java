@@ -3,7 +3,9 @@ package com.github.glomadrian.pathloading;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
@@ -24,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
   FrameLayout content;
   @Bind(R.id.nav)
   NavigationView navigationView;
+  @Bind(R.id.toolbar)
+  Toolbar toolbar;
+  private ActionBarDrawerToggle actionBarDrawerToggle;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
     ButterKnife.bind(this);
     initNavigationView();
+    configureToolbar();
     showHomeView();
   }
 
@@ -58,6 +64,21 @@ public class MainActivity extends AppCompatActivity {
             return false;
           }
         });
+  }
+
+  private void configureToolbar() {
+    setSupportActionBar(toolbar);
+
+    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    getSupportActionBar().setHomeButtonEnabled(true);
+    actionBarDrawerToggle =
+        new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name,
+            R.string.app_name);
+    drawerLayout.addDrawerListener(actionBarDrawerToggle);
+
+    actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
+    actionBarDrawerToggle.syncState();
+
   }
 
   private void dragSampleMenuTouch() {
@@ -115,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.openDrawer(Gravity.LEFT);
       }
     });
+
     getSupportFragmentManager().beginTransaction()
         .replace(R.id.content_frame, homeViewFragment)
         .commit();

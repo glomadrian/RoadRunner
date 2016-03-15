@@ -16,8 +16,9 @@
 
     <!-- PATH -->
     <attr name="path_data" format="string"/>
-    <attr name="path_original_width" format="dimension"/>
-    <attr name="path_original_height" format="dimension"/>
+    <attr name="path_original_width" format="integer"/>
+    <attr name="path_original_height" format="integer"/>
+
 
     <attr name="path_color" format="color"/>
     <attr name="movement_direction" format="enum">

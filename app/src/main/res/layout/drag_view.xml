@@ -19,8 +19,8 @@
       lib:stroke_width="1sp"
       lib:movement_loop_time="2000"
       lib:path_data="@string/newyork"
-      lib:path_original_width="@dimen/newyork_original_width"
-      lib:path_original_height="@dimen/newyork_original_height"
+      lib:path_original_width="@integer/newyork_original_width"
+      lib:path_original_height="@integer/newyork_original_height"
       lib:animate_on_start="false"
       android:layout_alignParentLeft="true"
       android:layout_alignParentStart="true" android:layout_above="@+id/frameLayout"/>

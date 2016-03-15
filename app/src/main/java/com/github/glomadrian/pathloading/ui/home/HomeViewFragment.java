@@ -8,6 +8,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.github.glomadrian.loadingpath.DeterminateLoadingPath;
@@ -20,8 +23,11 @@ public class HomeViewFragment extends Fragment {
 
   @Bind(R.id.determinate)
   DeterminateLoadingPath determinateLoadingPath;
+  @Bind(R.id.text_image)
+  ImageView textImage;
   private ValueAnimator progressAnimator;
   private FinishLoadingListener finishLoadingListener;
+  private Animation textAnimation;
 
   @Nullable @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
@@ -32,8 +38,24 @@ public class HomeViewFragment extends Fragment {
   @Override public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
     ButterKnife.bind(this, getActivity());
+    textAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.text);
+    textAnimation.setAnimationListener(new Animation.AnimationListener() {
+      @Override public void onAnimationStart(Animation animation) {
 
-    progressAnimator = ValueAnimator.ofInt(0, 1000).setDuration(3000);
+      }
+
+      @Override public void onAnimationEnd(Animation animation) {
+        if (finishLoadingListener != null) {
+          finishLoadingListener.onLoadingFinish();
+
+        }
+      }
+
+      @Override public void onAnimationRepeat(Animation animation) {
+
+      }
+    });
+    progressAnimator = ValueAnimator.ofInt(0, 1000).setDuration(4000);
     progressAnimator.setStartDelay(2000);
     progressAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
       @Override public void onAnimationUpdate(ValueAnimator animation) {
@@ -41,16 +63,15 @@ public class HomeViewFragment extends Fragment {
         determinateLoadingPath.setValue(value);
       }
     });
+
     progressAnimator.addListener(new Animator.AnimatorListener() {
       @Override public void onAnimationStart(Animator animation) {
-
       }
 
       @Override public void onAnimationEnd(Animator animation) {
         determinateLoadingPath.stop();
-        if (finishLoadingListener != null) {
-          finishLoadingListener.onLoadingFinish();
-        }
+        textImage.startAnimation(textAnimation);
+        textImage.setVisibility(View.VISIBLE);
       }
 
       @Override public void onAnimationCancel(Animator animation) {

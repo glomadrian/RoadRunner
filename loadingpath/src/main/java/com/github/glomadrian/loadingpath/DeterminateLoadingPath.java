@@ -31,6 +31,7 @@ public class DeterminateLoadingPath extends LoadingPath {
   private int value;
   private PathPainterConfiguration pathPainterConfiguration;
   private boolean animateOnStart = true;
+  private boolean firstDraw = true;
 
   public DeterminateLoadingPath(Context context) {
     super(context);
@@ -57,8 +58,8 @@ public class DeterminateLoadingPath extends LoadingPath {
   private void initPath(AttributeSet attrs) {
     TypedArray attributes = getContext().obtainStyledAttributes(attrs, R.styleable.LoadingPath);
     pathData = attributes.getString(R.styleable.LoadingPath_path_data);
-    originalWidth = (int) attributes.getDimension(R.styleable.LoadingPath_path_original_width, 0);
-    originalHeight = (int) attributes.getDimension(R.styleable.LoadingPath_path_original_height, 0);
+    originalWidth = attributes.getInteger(R.styleable.LoadingPath_path_original_width, 0);
+    originalHeight = attributes.getInteger(R.styleable.LoadingPath_path_original_height, 0);
     animateOnStart = attributes.getBoolean(R.styleable.LoadingPath_animate_on_start, true);
 
     AssertUtils.assertThis(pathData != null, "Path data must be defined", this.getClass());
@@ -72,8 +73,8 @@ public class DeterminateLoadingPath extends LoadingPath {
 
   private void initConfiguration(AttributeSet attrs) {
     TypedArray attributes = getContext().obtainStyledAttributes(attrs, R.styleable.LoadingPath);
-    min = attributes.getInteger(R.styleable.LoadingPath_min, 0);
-    max = attributes.getInteger(R.styleable.LoadingPath_max, 100);
+    min = attributes.getInteger(R.styleable.LoadingPath_min, min);
+    max = attributes.getInteger(R.styleable.LoadingPath_max, max);
     pathPainterConfiguration =
         PathPainterConfigurationFactory.makeConfiguration(attributes, DeterminatePainter.TWO_WAY);
     attributes.recycle();
@@ -100,7 +101,11 @@ public class DeterminateLoadingPath extends LoadingPath {
 
   @Override
   protected void onDraw(Canvas canvas) {
-    twoWayDeterminatePainter.paintPath(canvas);
+    if (!firstDraw) {
+      twoWayDeterminatePainter.paintPath(canvas);
+    } else {
+      firstDraw = false;
+    }
   }
 
   public int getMin() {
@@ -125,6 +130,9 @@ public class DeterminateLoadingPath extends LoadingPath {
       float progress = RangeUtils.getFloatValueInRange(min, max, 0f, 1f, value);
       if (twoWayDeterminatePainter != null) {
         twoWayDeterminatePainter.setProgress(progress);
+      }
+      if (value == max) {
+        twoWayDeterminatePainter.stop();
       }
     }
   }
