@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
-import com.github.glomadrian.loadingpath.painter.LoadingPathPainter;
+import com.github.glomadrian.loadingpath.painter.RoadRunnerPainter;
 import com.github.glomadrian.loadingpath.painter.configuration.Direction;
 import com.github.glomadrian.loadingpath.painter.configuration.indeterminate.MaterialPainterConfiguration;
 import com.github.glomadrian.loadingpath.path.PathContainer;
@@ -15,7 +15,7 @@ import com.github.glomadrian.loadingpath.path.PathContainer;
 /**
  * @author Adrián García Lomas
  */
-public class MaterialPainter extends LoadingPathPainter implements IndeterminatePathPainter {
+public class MaterialPainter extends RoadRunnerPainter implements IndeterminatePathPainter {
 
   private static final String TAG = "MaterialPainter";
   private ValueAnimator movementAnimator;

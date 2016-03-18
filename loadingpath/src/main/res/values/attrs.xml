@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <declare-styleable name="LoadingPath">
+  <declare-styleable name="RoadRunner">
 
     <!--DETERMINATE-->
     <attr name="min" format="integer"/>

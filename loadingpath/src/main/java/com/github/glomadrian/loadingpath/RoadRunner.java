@@ -13,17 +13,17 @@ import java.text.ParseException;
 /**
  * @author Adrián García Lomas
  */
-public abstract class LoadingPath extends View {
+public abstract class RoadRunner extends View {
 
-  public LoadingPath(Context context) {
+  public RoadRunner(Context context) {
     super(context);
   }
 
-  public LoadingPath(Context context, AttributeSet attrs) {
+  public RoadRunner(Context context, AttributeSet attrs) {
     super(context, attrs);
   }
 
-  public LoadingPath(Context context, AttributeSet attrs, int defStyleAttr) {
+  public RoadRunner(Context context, AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
   }
 

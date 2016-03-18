@@ -11,7 +11,7 @@ import com.github.glomadrian.loadingpath.path.PathContainer;
 /**
  * @author Adrián García Lomas
  */
-public class DeterminatePathLoadingPainterFactory {
+public class DeterminatePainterFactory {
 
   public static DeterminatePathPainter makeIndeterminatePathPainter(
       DeterminatePainter determinatePainter,

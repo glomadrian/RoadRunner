@@ -11,7 +11,7 @@ import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import com.github.glomadrian.loadingpath.DeterminateLoadingPath;
+import com.github.glomadrian.loadingpath.DeterminateRoadRunner;
 import com.github.glomadrian.pathloading.R;
 
 /**
@@ -23,7 +23,7 @@ public class DeterminateViewFragment extends Fragment {
   private ValueAnimator progressAnimator;
 
   @Bind(R.id.determinate)
-  DeterminateLoadingPath determinateLoadingPath;
+  DeterminateRoadRunner determinateLoadingPath;
   @Bind(R.id.progress_text)
   TextView progressText;
 

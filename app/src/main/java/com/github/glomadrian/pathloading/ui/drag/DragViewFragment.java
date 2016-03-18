@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import com.github.glomadrian.loadingpath.DeterminateLoadingPath;
+import com.github.glomadrian.loadingpath.DeterminateRoadRunner;
 import com.github.glomadrian.pathloading.R;
 import com.github.glomadrian.pathloading.ui.MediaFavButton;
 import com.github.glomadrian.pathloading.utils.RangeUtils;
@@ -21,7 +21,7 @@ import com.github.glomadrian.pathloading.utils.RangeUtils;
 public class DragViewFragment extends Fragment {
 
   @Bind(R.id.determinate)
-  DeterminateLoadingPath determinateLoadingPath;
+  DeterminateRoadRunner determinateLoadingPath;
   @Bind(R.id.drag_view)
   View dragView;
   @Bind(R.id.media_action)

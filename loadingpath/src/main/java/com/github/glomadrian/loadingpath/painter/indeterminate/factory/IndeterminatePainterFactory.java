@@ -13,7 +13,7 @@ import com.github.glomadrian.loadingpath.path.PathContainer;
 /**
  * @author Adrián García Lomas
  */
-public class IndeterminatePathLoadingPainterFactory {
+public class IndeterminatePainterFactory {
 
   public static IndeterminatePathPainter makeIndeterminatePathPainter(IndeterminatePainter indeterminatePainter,
       PathContainer pathContainer, View view, PathPainterConfiguration pathPainterConfiguration) {

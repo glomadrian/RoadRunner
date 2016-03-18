@@ -11,7 +11,7 @@ import com.github.glomadrian.loadingpath.path.PathContainer;
  *
  * @author Adrián García Lomas
  */
-public abstract class LoadingPathPainter extends PointPathPainter {
+public abstract class RoadRunnerPainter extends PointPathPainter {
 
   protected Paint paint;
   protected int color = Color.WHITE;
@@ -20,7 +20,7 @@ public abstract class LoadingPathPainter extends PointPathPainter {
   protected int movementLinePoints = 50;
   protected Direction movementDirection = Direction.CLOCKWISE;
 
-  public LoadingPathPainter(PathContainer pathData, View view) {
+  public RoadRunnerPainter(PathContainer pathData, View view) {
     super(pathData, view);
   }
 

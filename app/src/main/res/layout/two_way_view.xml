@@ -12,7 +12,7 @@
 >
 
 
-  <com.github.glomadrian.loadingpath.IndeterminateLoadingPath
+  <com.github.glomadrian.loadingpath.IndeterminateRoadRunner
       android:id="@+id/two_way"
       android:layout_width="match_parent"
       android:layout_height="match_parent"

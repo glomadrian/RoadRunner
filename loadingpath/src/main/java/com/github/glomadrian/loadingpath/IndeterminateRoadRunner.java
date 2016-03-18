@@ -9,7 +9,7 @@ import com.github.glomadrian.loadingpath.painter.configuration.PathPainterConfig
 import com.github.glomadrian.loadingpath.painter.configuration.factory.PathPainterConfigurationFactory;
 import com.github.glomadrian.loadingpath.painter.indeterminate.IndeterminatePainter;
 import com.github.glomadrian.loadingpath.painter.indeterminate.IndeterminatePathPainter;
-import com.github.glomadrian.loadingpath.painter.indeterminate.factory.IndeterminatePathLoadingPainterFactory;
+import com.github.glomadrian.loadingpath.painter.indeterminate.factory.IndeterminatePainterFactory;
 import com.github.glomadrian.loadingpath.path.PathContainer;
 import com.github.glomadrian.loadingpath.utils.AssertUtils;
 import java.text.ParseException;
@@ -17,7 +17,7 @@ import java.text.ParseException;
 /**
  * @author Adrián García Lomas
  */
-public class IndeterminateLoadingPath extends LoadingPath {
+public class IndeterminateRoadRunner extends RoadRunner {
 
   private static final String TAG = "IndeterminateLoading";
   private int originalWidth;
@@ -29,18 +29,18 @@ public class IndeterminateLoadingPath extends LoadingPath {
   private PathPainterConfiguration pathPainterConfiguration;
   private boolean animateOnStart = true;
 
-  public IndeterminateLoadingPath(Context context) {
+  public IndeterminateRoadRunner(Context context) {
     super(context);
     throw new UnsupportedOperationException("The view can not be created programmatically yet");
   }
 
-  public IndeterminateLoadingPath(Context context, AttributeSet attrs) {
+  public IndeterminateRoadRunner(Context context, AttributeSet attrs) {
     super(context, attrs);
     initPath(attrs);
     initConfiguration(attrs);
   }
 
-  public IndeterminateLoadingPath(Context context, AttributeSet attrs, int defStyleAttr) {
+  public IndeterminateRoadRunner(Context context, AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
     initPath(attrs);
     initConfiguration(attrs);
@@ -52,13 +52,13 @@ public class IndeterminateLoadingPath extends LoadingPath {
   }
 
   private void initPath(AttributeSet attrs) {
-    TypedArray attributes = getContext().obtainStyledAttributes(attrs, R.styleable.LoadingPath);
-    int animationValue = attributes.getInt(R.styleable.LoadingPath_path_animation_type, 0);
+    TypedArray attributes = getContext().obtainStyledAttributes(attrs, R.styleable.RoadRunner);
+    int animationValue = attributes.getInt(R.styleable.RoadRunner_path_animation_type, 0);
     pathIndeterminatePainterSelected = IndeterminatePainter.fromId(animationValue);
-    pathData = attributes.getString(R.styleable.LoadingPath_path_data);
-    originalWidth = attributes.getInteger(R.styleable.LoadingPath_path_original_width, 0);
-    originalHeight = attributes.getInteger(R.styleable.LoadingPath_path_original_height, 0);
-    animateOnStart = attributes.getBoolean(R.styleable.LoadingPath_animate_on_start, true);
+    pathData = attributes.getString(R.styleable.RoadRunner_path_data);
+    originalWidth = attributes.getInteger(R.styleable.RoadRunner_path_original_width, 0);
+    originalHeight = attributes.getInteger(R.styleable.RoadRunner_path_original_height, 0);
+    animateOnStart = attributes.getBoolean(R.styleable.RoadRunner_animate_on_start, true);
 
     AssertUtils.assertThis(pathData != null, "Path data must be defined", this.getClass());
     AssertUtils.assertThis(!pathData.isEmpty(), "Path data must be defined", this.getClass());
@@ -70,7 +70,7 @@ public class IndeterminateLoadingPath extends LoadingPath {
   }
 
   private void initConfiguration(AttributeSet attrs) {
-    TypedArray attributes = getContext().obtainStyledAttributes(attrs, R.styleable.LoadingPath);
+    TypedArray attributes = getContext().obtainStyledAttributes(attrs, R.styleable.RoadRunner);
     pathPainterConfiguration =
         PathPainterConfigurationFactory.makeConfiguration(attributes,
             pathIndeterminatePainterSelected);
@@ -79,7 +79,7 @@ public class IndeterminateLoadingPath extends LoadingPath {
 
   private void initPathPainter() {
     pathPainter =
-        IndeterminatePathLoadingPainterFactory.makeIndeterminatePathPainter(
+        IndeterminatePainterFactory.makeIndeterminatePathPainter(
             pathIndeterminatePainterSelected, pathContainer,
             this, pathPainterConfiguration);
   }

@@ -39,10 +39,10 @@ public class PathPainterConfigurationFactory {
   }
 
   private static PathPainterConfiguration makeMaterialConfiguration(TypedArray typedArray) {
-    int color = typedArray.getColor(R.styleable.LoadingPath_path_color, Color.RED);
-    int directionValue = typedArray.getInt(R.styleable.LoadingPath_movement_direction, 0);
+    int color = typedArray.getColor(R.styleable.RoadRunner_path_color, Color.RED);
+    int directionValue = typedArray.getInt(R.styleable.RoadRunner_movement_direction, 0);
     Direction movementDirection = Direction.fromId(directionValue);
-    float strokeWidth = typedArray.getDimension(R.styleable.LoadingPath_stroke_width, 10);
+    float strokeWidth = typedArray.getDimension(R.styleable.RoadRunner_stroke_width, 10);
 
     MaterialPainterConfiguration materialPainterConfiguration =
         MaterialPainterConfiguration.newBuilder()
@@ -55,22 +55,22 @@ public class PathPainterConfigurationFactory {
   }
 
   private static TwoWayIndeterminateConfiguration makeTwoWayConfiguration(TypedArray typedArray) {
-    int color = typedArray.getColor(R.styleable.LoadingPath_path_color, Color.RED);
-    int directionValue = typedArray.getInt(R.styleable.LoadingPath_movement_direction, 0);
+    int color = typedArray.getColor(R.styleable.RoadRunner_path_color, Color.RED);
+    int directionValue = typedArray.getInt(R.styleable.RoadRunner_movement_direction, 0);
     Direction movementDirection = Direction.fromId(directionValue);
-    float strokeWidth = typedArray.getDimension(R.styleable.LoadingPath_stroke_width, 10);
-    int movementLoopTime = typedArray.getInt(R.styleable.LoadingPath_movement_loop_time, 4000);
-    float lineSize = typedArray.getFloat(R.styleable.LoadingPath_line_size, 0.05f);
+    float strokeWidth = typedArray.getDimension(R.styleable.RoadRunner_stroke_width, 10);
+    int movementLoopTime = typedArray.getInt(R.styleable.RoadRunner_movement_loop_time, 4000);
+    float lineSize = typedArray.getFloat(R.styleable.RoadRunner_line_size, 0.05f);
     int rightLineAnimationTime =
-        typedArray.getInt(R.styleable.LoadingPath_right_line_animation_time, 1400);
-    float rightLineMaxSize = typedArray.getFloat(R.styleable.LoadingPath_right_line_max_size, 0.4f);
+        typedArray.getInt(R.styleable.RoadRunner_right_line_animation_time, 1400);
+    float rightLineMaxSize = typedArray.getFloat(R.styleable.RoadRunner_right_line_max_size, 0.4f);
     int rightLineAnimationStartDelay =
-        typedArray.getInt(R.styleable.LoadingPath_right_line_animation_start_delay, 3000);
+        typedArray.getInt(R.styleable.RoadRunner_right_line_animation_start_delay, 3000);
     int leftLineAnimationTime =
-        typedArray.getInt(R.styleable.LoadingPath_left_line_animation_time, 2000);
-    float leftLineMaxSize = typedArray.getFloat(R.styleable.LoadingPath_left_line_max_size, 0.5f);
+        typedArray.getInt(R.styleable.RoadRunner_left_line_animation_time, 2000);
+    float leftLineMaxSize = typedArray.getFloat(R.styleable.RoadRunner_left_line_max_size, 0.5f);
     int leftLineAnimationStartDelay =
-        typedArray.getInt(R.styleable.LoadingPath_left_line_animation_start_delay, 1000);
+        typedArray.getInt(R.styleable.RoadRunner_left_line_animation_start_delay, 1000);
 
     TwoWayIndeterminateConfiguration twoWayIndeterminateConfiguration =
         TwoWayIndeterminateConfiguration
@@ -92,12 +92,12 @@ public class PathPainterConfigurationFactory {
 
   private static TwoWayDeterminateConfiguration makeTwoWayDeterminateConfiguration(
       TypedArray typedArray) {
-    int color = typedArray.getColor(R.styleable.LoadingPath_path_color, Color.RED);
-    int directionValue = typedArray.getInt(R.styleable.LoadingPath_movement_direction, 0);
+    int color = typedArray.getColor(R.styleable.RoadRunner_path_color, Color.RED);
+    int directionValue = typedArray.getInt(R.styleable.RoadRunner_movement_direction, 0);
     Direction movementDirection = Direction.fromId(directionValue);
-    float strokeWidth = typedArray.getDimension(R.styleable.LoadingPath_stroke_width, 10);
-    int movementLoopTime = typedArray.getInt(R.styleable.LoadingPath_movement_loop_time, 4000);
-    float lineSize = typedArray.getFloat(R.styleable.LoadingPath_line_size, 0.05f);
+    float strokeWidth = typedArray.getDimension(R.styleable.RoadRunner_stroke_width, 10);
+    int movementLoopTime = typedArray.getInt(R.styleable.RoadRunner_movement_loop_time, 4000);
+    float lineSize = typedArray.getFloat(R.styleable.RoadRunner_line_size, 0.05f);
 
     TwoWayDeterminateConfiguration twoWayDeterminateConfiguration =
         TwoWayDeterminateConfiguration.newBuilder()

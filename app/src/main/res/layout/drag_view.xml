@@ -10,7 +10,7 @@
     tools:context="com.github.glomadrian.pathloading.MainActivity"
 >
 
-  <com.github.glomadrian.loadingpath.DeterminateLoadingPath
+  <com.github.glomadrian.loadingpath.DeterminateRoadRunner
       android:id="@+id/determinate"
       android:layout_width="match_parent"
       android:layout_height="match_parent"

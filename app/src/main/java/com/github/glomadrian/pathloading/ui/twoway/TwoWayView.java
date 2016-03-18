@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import com.github.glomadrian.loadingpath.IndeterminateLoadingPath;
+import com.github.glomadrian.loadingpath.IndeterminateRoadRunner;
 import com.github.glomadrian.pathloading.R;
 import com.rtugeek.android.colorseekbar.ColorSeekBar;
 
@@ -19,7 +19,7 @@ import com.rtugeek.android.colorseekbar.ColorSeekBar;
 public class TwoWayView extends Fragment {
 
   @Bind(R.id.two_way)
-  IndeterminateLoadingPath indeterminateLoadingPath;
+  IndeterminateRoadRunner indeterminateLoadingPath;
   @Bind(R.id.color_picker)
   ColorSeekBar colorSeekBar;
 

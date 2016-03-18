@@ -13,7 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import com.github.glomadrian.loadingpath.DeterminateLoadingPath;
+import com.github.glomadrian.loadingpath.DeterminateRoadRunner;
 import com.github.glomadrian.pathloading.R;
 
 /**
@@ -22,7 +22,7 @@ import com.github.glomadrian.pathloading.R;
 public class HomeViewFragment extends Fragment {
 
   @Bind(R.id.determinate)
-  DeterminateLoadingPath determinateLoadingPath;
+  DeterminateRoadRunner determinateLoadingPath;
   @Bind(R.id.text_image)
   ImageView textImage;
   private ValueAnimator progressAnimator;

@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
-import com.github.glomadrian.loadingpath.painter.LoadingPathPainter;
+import com.github.glomadrian.loadingpath.painter.RoadRunnerPainter;
 import com.github.glomadrian.loadingpath.painter.configuration.Direction;
 import com.github.glomadrian.loadingpath.painter.configuration.determinate.TwoWayDeterminateConfiguration;
 import com.github.glomadrian.loadingpath.painter.indeterminate.IndeterminatePathPainter;
@@ -14,7 +14,7 @@ import com.github.glomadrian.loadingpath.path.PathContainer;
 /**
  * @author Adrián García Lomas
  */
-public class TwoWayDeterminatePainter extends LoadingPathPainter
+public class TwoWayDeterminatePainter extends RoadRunnerPainter
     implements DeterminatePathPainter, IndeterminatePathPainter {
 
   private ValueAnimator movementAnimator;
