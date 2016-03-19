@@ -13,10 +13,6 @@ animation using SVG image
 
 ## Sample video
 
-## Screnshots
-
-asd
-
 ## Demo Application
 <a href="https://play.google.com/store/apps/details?id=com.github.glomadrian.pathloading">
 <img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get on google play" height="60" border="0">
