@@ -11,7 +11,7 @@
 >
 
 
-  <com.github.glomadrian.loadingpath.DeterminateRoadRunner
+  <com.github.glomadrian.roadrunner.DeterminateRoadRunner
       android:id="@+id/determinate"
       android:layout_width="match_parent"
       android:layout_height="match_parent"

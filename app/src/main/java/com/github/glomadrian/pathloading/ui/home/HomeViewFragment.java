@@ -13,7 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import com.github.glomadrian.loadingpath.DeterminateRoadRunner;
+import com.github.glomadrian.roadrunner.DeterminateRoadRunner;
 import com.github.glomadrian.pathloading.R;
 
 /**

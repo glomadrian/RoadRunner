@@ -8,7 +8,7 @@
 
 >
 
-  <com.github.glomadrian.loadingpath.IndeterminateRoadRunner
+  <com.github.glomadrian.roadrunner.IndeterminateRoadRunner
       android:padding="5dp"
       android:id="@+id/material"
       android:layout_width="match_parent"

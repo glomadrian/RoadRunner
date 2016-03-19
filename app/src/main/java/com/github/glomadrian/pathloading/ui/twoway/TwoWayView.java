@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import com.github.glomadrian.loadingpath.IndeterminateRoadRunner;
+import com.github.glomadrian.roadrunner.IndeterminateRoadRunner;
 import com.github.glomadrian.pathloading.R;
 import com.rtugeek.android.colorseekbar.ColorSeekBar;
 

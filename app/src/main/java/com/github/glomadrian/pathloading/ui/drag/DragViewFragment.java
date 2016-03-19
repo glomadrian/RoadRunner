@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import com.github.glomadrian.loadingpath.DeterminateRoadRunner;
+import com.github.glomadrian.roadrunner.DeterminateRoadRunner;
 import com.github.glomadrian.pathloading.R;
 import com.github.glomadrian.pathloading.ui.MediaFavButton;
 import com.github.glomadrian.pathloading.utils.RangeUtils;

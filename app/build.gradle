@@ -31,5 +31,5 @@ dependencies {
   compile 'com.android.support:design:23.2.1'
   compile 'com.jakewharton:butterknife:7.0.1'
   compile 'com.github.rtugeek:ColorSeekBar:1.0.1'
-  compile project (":loadingpath")
+  compile project (':roadrunner')
 }
