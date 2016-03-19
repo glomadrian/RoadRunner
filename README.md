@@ -174,8 +174,7 @@ width="512"
 
 
 ## Attributions
-- rommannurik
-- jorge
+* Thanks to Jorge Castillo Pérez for his [AndroidFillableLoaders](https://github.com/JorgeCastilloPrz/AndroidFillableLoaders) has been very helpful
 
 
 For Gradle
