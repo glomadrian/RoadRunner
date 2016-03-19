@@ -1,4 +1,6 @@
 # Road Runner
+[ ![Download](https://api.bintray.com/packages/glomadrian/maven/RoadRunner/images/download.svg) ](https://bintray.com/glomadrian/maven/RoadRunner/_latestVersion)
+[![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0) [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
 <center>
 <img src="./art/roadrunnerlogo.png " alt="Drawing" style="width: 300px;" />
 </center>
@@ -15,6 +17,10 @@ animation using SVG image
 
 asd
 
+## Demo Application
+<a href="https://play.google.com/store/apps/details?id=com.github.glomadrian.pathloading">
+<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get on google play" height="60" border="0">
+</a>
 #### Road Runner intro
 <center>
 <img src="./art/roadRunner.gif " alt="Drawing" style="width: 250px;" />
@@ -174,3 +180,43 @@ width="512"
 ## Attributions
 - rommannurik
 - jorge
+
+
+For Gradle
+---------------------
+
+Add repository
+
+```groovy
+repositories {
+  maven {
+    url "http://dl.bintray.com/glomadrian/maven"
+  }
+}
+```
+Add dependency
+```groovy
+compile 'com.github.glomadrian:roadrunner:1.0@aar'
+```
+Developed By
+------------
+Adrián García Lomas - <glomadrian@gmail.com>
+* [Twitter](https://twitter.com/glomadrian)
+* [LinkedIn](https://es.linkedin.com/in/glomadrian )
+
+License
+-------
+
+    Copyright 2016 Adrián García Lomas
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
