@@ -112,7 +112,7 @@ width="512"
      lib:path_animation_type="material"
      />
 ```
-#### Determinate To way
+#### Determinate Two way
 ``` xml
 <com.github.glomadrian.roadrunner.DeterminateRoadRunner
     android:id="@+id/determinate"
