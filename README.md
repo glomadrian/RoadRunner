@@ -135,17 +135,17 @@ width="512"
 
 ### Common
 
-* <font color="#FF4B4A">movement_direction:</font> clockwise or counter_clockwise
-* <font color="#FF4B4A">path_color: color of the painted path
-* <font color="#FF4B4A">stroke_width: width of the painted path
-* <font color="#FF4B4A">path_data:</font> String with the path information
-* <font color="#FF4B4A">path_original_width:</font> The original with defined in the SVG
-* <font color="#FF4B4A">path_original_height:</font> The original height defined in the SVG
-* <font color="#FF4B4A">animate_on_start:</font> true or false, init the animation on first paint (true by default)
+* **movement_direction:** clockwise or counter_clockwise
+* **path_color: color of the painted path
+* **stroke_width: width of the painted path
+* **path_data:** String with the path information
+* **path_original_width:** The original with defined in the SVG
+* **path_original_height:** The original height defined in the SVG
+* **animate_on_start:** true or false, init the animation on first paint (true by default)
 
 
 ### Indeterminate
-* <font color="#FF4B4A">path_animation_type:</font> Select indetermina animation type, can be:
+* **path_animation_type:** Select indetermina animation type, can be:
   * material
   * twoWay
 
@@ -154,24 +154,24 @@ width="512"
 * Dont have any custom attributes
 
 #### Indeterminate Two way
-* <font color="#FF4B4A">movement_loop_time:</font> Time take to do a complete loop
-* <font color="#FF4B4A">line_size:</font><font color="#625195">\*</font> The size of the base line
-* <font color="#FF4B4A">left_line_animation_time:</font> Time take to do a complete animation to the left line
-* <font color="#FF4B4A">right_line_animation_time:</font> Time take to do a complete animation to the right line
-* <font color="#FF4B4A">left_line_max_size:</font><font color="#625195">\*</font>  The max size that the left line can research in the animation
-* <font color="#FF4B4A">right_line_max_size:</font><font color="#625195">\*</font>  The max size that the right line can research in the animation
-* <font color="#FF4B4A">left_line_animation_start_delay:</font> Time to wait to start the left line animation (in milliseconds)
-* <font color="#FF4B4A">right_line_animation_start_delay:</font> Time to wait to start the right line animation (in milliseconds)
+* **movement_loop_time:**** Time take to do a complete loop
+* **line_size:**\* The size of the base line
+* **left_line_animation_time:** Time take to do a complete animation to the left line
+* **right_line_animation_time:** Time take to do a complete animation to the right line
+* **left_line_max_size:**\*  The max size that the left line can research in the animation
+* **right_line_max_size:**\* The max size that the right line can research in the animation
+* **left_line_animation_start_delay:** Time to wait to start the left line animation (in milliseconds)
+* **right_line_animation_start_delay:** Time to wait to start the right line animation (in milliseconds)
 
-\* <font color="#625195">From 0f to 1f, 1f is all the path</font>
+\* From 0f to 1f, 1f is all the path
 
 ### Determinate
-* <font color="#FF4B4A">min:</font> Min value for the progress
-* <font color="#FF4B4A">max:</font> Max value for the progress
-* <font color="#FF4B4A">movement_loop_time:</font> Time take to do a complete loop
-* <font color="#FF4B4A">movement_line_size:</font><font color="#625195">\*</font>  The size of the line
+* **min:** Min value for the progress
+* **max:** Max value for the progress
+* **movement_loop_time:** Time take to do a complete loop
+* **movement_line_size:**\*  The size of the line
 
-\* <font color="#625195">From 0f to 1f, 1f is all the path</font>
+\* From 0f to 1f, 1f is all the path
 
 
 ## Attributions
