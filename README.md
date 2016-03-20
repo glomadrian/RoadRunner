@@ -2,7 +2,7 @@
 [ ![Download](https://api.bintray.com/packages/glomadrian/maven/RoadRunner/images/download.svg) ](https://bintray.com/glomadrian/maven/RoadRunner/_latestVersion)
 [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0) [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
 <center>
-<img src="./art/roadrunnerlogo.png " alt="Drawing" style="width: 300px;" />
+<img src="./art/roadrunnerlogo.png " alt="Drawing" width="250" />
 </center>
 </br>
 <p>
@@ -42,7 +42,7 @@ animation using a SVG image
 
 ## How to
 
-The library use the standard String path information (only one path) and the original size to works, you needs to obtain it using a external tool, the path information look like this:
+The library use the standard String path information (only one path) and the original size to works, you need to obtain it using a external tool, the path information look like this:
 
 ```
 M306.314,58.9801 C275.235,27.9011,224.837,27.9011,193.759,58.9801
@@ -63,7 +63,7 @@ C147.678,302.038,147.678,308.345,151.558,312.225
 C155.438,316.105,161.745,316.105,165.625,312.225 L306.314,171.535
 C337.393,140.457,337.393,90.0591,306.314,58.98 Z
 ```
-And the with and hegiht can be found in the svg definition:
+And the width and height can be found in the svg definition:
 
 ```
 height="316"

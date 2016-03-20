@@ -1,10 +1,10 @@
 package com.github.glomadrian.roadrunner.painter.indeterminate.factory;
 
 import android.view.View;
-import com.github.glomadrian.roadrunner.painter.indeterminate.IndeterminatePainter;
-import com.github.glomadrian.roadrunner.painter.configuration.indeterminate.MaterialPainterConfiguration;
 import com.github.glomadrian.roadrunner.painter.configuration.PathPainterConfiguration;
+import com.github.glomadrian.roadrunner.painter.configuration.indeterminate.MaterialPainterConfiguration;
 import com.github.glomadrian.roadrunner.painter.configuration.indeterminate.TwoWayIndeterminateConfiguration;
+import com.github.glomadrian.roadrunner.painter.indeterminate.IndeterminatePainter;
 import com.github.glomadrian.roadrunner.painter.indeterminate.IndeterminatePathPainter;
 import com.github.glomadrian.roadrunner.painter.indeterminate.MaterialPainter;
 import com.github.glomadrian.roadrunner.painter.indeterminate.TwoWayIndeterminatePainter;
@@ -23,13 +23,10 @@ public class IndeterminatePainterFactory {
         return makeTwoWayPainter(pathContainer, view, pathPainterConfiguration);
       case MATERIAL:
         return makeMaterialPainter(pathContainer, view, pathPainterConfiguration);
-      //case TWO_WAY_DETERMINATE:
-      //  return makeTwoWayDeterminatePainter(pathContainer, view, pathPainterConfiguration);
       default:
         return makeTwoWayPainter(pathContainer, view, pathPainterConfiguration);
     }
   }
-
 
   private static IndeterminatePathPainter makeMaterialPainter(PathContainer pathContainer,
       View view, PathPainterConfiguration pathPainterConfiguration) {
@@ -43,6 +40,4 @@ public class IndeterminatePainterFactory {
     return new TwoWayIndeterminatePainter(view, pathContainer,
         (TwoWayIndeterminateConfiguration) pathPainterConfiguration);
   }
-
-
 }

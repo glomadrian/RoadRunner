@@ -13,8 +13,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import com.github.glomadrian.roadrunner.DeterminateRoadRunner;
 import com.github.glomadrian.pathloading.R;
+import com.github.glomadrian.roadrunner.DeterminateRoadRunner;
 
 /**
  * @author Adrián García Lomas
@@ -41,20 +41,20 @@ public class HomeViewFragment extends Fragment {
     textAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.text);
     textAnimation.setAnimationListener(new Animation.AnimationListener() {
       @Override public void onAnimationStart(Animation animation) {
-
+        //Empty
       }
 
       @Override public void onAnimationEnd(Animation animation) {
         if (finishLoadingListener != null) {
           finishLoadingListener.onLoadingFinish();
-
         }
       }
 
       @Override public void onAnimationRepeat(Animation animation) {
-
+        //Empty
       }
     });
+
     progressAnimator = ValueAnimator.ofInt(0, 1000).setDuration(4000);
     progressAnimator.setStartDelay(2000);
     progressAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -75,11 +75,11 @@ public class HomeViewFragment extends Fragment {
       }
 
       @Override public void onAnimationCancel(Animator animation) {
-
+        //Empty
       }
 
       @Override public void onAnimationRepeat(Animator animation) {
-
+        //Empty
       }
     });
     progressAnimator.start();
