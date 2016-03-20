@@ -136,8 +136,8 @@ width="512"
 ### Common
 
 * **movement_direction:** clockwise or counter_clockwise
-* **path_color: color of the painted path
-* **stroke_width: width of the painted path
+* **path_color:** color of the painted path
+* **stroke_width:** width of the painted path
 * **path_data:** String with the path information
 * **path_original_width:** The original with defined in the SVG
 * **path_original_height:** The original height defined in the SVG
