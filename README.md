@@ -6,8 +6,8 @@
 </center>
 </br>
 <p>
-Road Runner is a library for android with with you can make your own loading
-animation using SVG image
+Road Runner is a library for android which allow you to make your own loading
+animation using a SVG image
 <p/>
 
 
@@ -20,25 +20,25 @@ animation using SVG image
 </a>
 #### Road Runner intro
 <center>
-<img src="./art/roadRunner.gif " alt="Drawing" style="width: 250px;" />
+<img src="./art/roadRunner.gif " alt="Drawing"  width="250" />
 
 
 #### Determiante
 <center>
-<img src="./art/cityshort.gif " alt="Drawing" style="width: 250px;" />
-<img src="./art/citylong.gif " alt="Drawing" style="width: 250px;" />
+<img src="./art/cityshort.gif " alt="Drawing" width="250" />
+<img src="./art/citylong.gif " alt="Drawing" width="250" />
 
 #### Determiante with value update
 <center>
-<img src="./art/determinateTwoWay.gif " alt="Drawing" style="width: 250px;" />
+<img src="./art/determinateTwoWay.gif " alt="Drawing" width="250" />
 
 #### Material animation with twitter logo
 <center>
-<img src="./art/materialTwitter.gif " alt="Drawing" style="width: 250px;" />
+<img src="./art/materialTwitter.gif " alt="Drawing" width="250" />
 
 #### TwoWay animation with Github logo
 <center>
-<img src="./art/twowaygthub.gif " alt="Drawing" style="width: 250px;" />
+<img src="./art/twowaygthub.gif " alt="Drawing" width="250" />
 
 ## How to
 
