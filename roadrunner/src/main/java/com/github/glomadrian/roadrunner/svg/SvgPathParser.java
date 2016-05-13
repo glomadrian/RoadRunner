@@ -86,7 +86,7 @@ public class SvgPathParser {
 
         case 'C':
         case 'c': {
-          // curve command
+          // cubic bezier curve command
           if (mCurrentPoint.x == Float.NaN) {
             throw new ParseException("Relative commands require current point", mIndex);
           }
@@ -99,6 +99,23 @@ public class SvgPathParser {
                 tempPoint3.y);
           }
           mCurrentPoint.set(tempPoint3);
+          break;
+        }
+
+        case 'Q':
+        case 'q': {
+          // quadratic bezier curve command
+          if (mCurrentPoint.x == Float.NaN) {
+            throw new ParseException("Relative commands require current point", mIndex);
+          }
+
+          while (advanceToNextToken() == TOKEN_VALUE) {
+            consumeAndTransformPoint(tempPoint1, relative);
+            consumeAndTransformPoint(tempPoint2, relative);
+
+            p.quadTo(tempPoint1.x, tempPoint1.y, tempPoint2.x, tempPoint2.y);
+          }
+          mCurrentPoint.set(tempPoint2);
           break;
         }
 
