@@ -4,7 +4,7 @@ package com.github.glomadrian.roadrunner.painter.determinate;
  * @author Adrián García Lomas
  */
 public enum DeterminatePainter {
-  TWO_WAY(0);
+  TWO_WAY(0), PROGRESS(1);
 
   int id;
 

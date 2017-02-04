@@ -4,6 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
+import android.util.Log;
 import android.view.View;
 import com.github.glomadrian.roadrunner.path.PathContainer;
 import java.util.ArrayList;

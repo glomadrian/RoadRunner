@@ -11,4 +11,5 @@
   <string name="material_sample_info">A material loading sample using path</string>
   <string name="material_sample">Material</string>
   <string name="two_way">Two Way</string>
+  <string name="progress">Progress tracing</string>
 </resources>
