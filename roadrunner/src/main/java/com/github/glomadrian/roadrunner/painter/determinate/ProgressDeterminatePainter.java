@@ -76,7 +76,8 @@ public class ProgressDeterminatePainter extends RoadRunnerPainter
         int firstPosition = getPositionForZone(zone) - pointInRange - movementLinePoints;
         int absFirstPosition = Math.abs(firstPosition);
 
-        int right = 0, left = 0;
+        int right = -movementLinePoints;
+        int left;
         /**
          * Somehow when progress is about to 1.f then it crashes by IndexOutOfBoundsException
          * and as i debugged it's because multiplication creating an offset which bigger than pointsSize

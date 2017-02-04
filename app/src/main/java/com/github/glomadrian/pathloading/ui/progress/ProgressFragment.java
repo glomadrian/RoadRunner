@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,11 +52,10 @@ public class ProgressFragment extends Fragment implements SeekBar.OnSeekBarChang
         seekBar.setOnSeekBarChangeListener(this);
 
         roadRunner = (ProgressRoadRunner) new ProgressRoadRunner.Builder(view.getContext())
-                .setOriginalSizes(getResources().getInteger(R.integer.twitter_original_width),
-                        getResources().getInteger(R.integer.twitter_original_height))
+                .setOriginalSizes(getResources().getInteger(R.integer.twitter_original_width), getResources().getInteger(R.integer.twitter_original_height))
                 .setPath(getString(R.string.twitter))
                 .setColor(Color.BLACK)
-                .setStrokeWidth(10)
+                .setStrokeWidth(40)
                 .setMovementDirection(Direction.CLOCKWISE)
                 .build();
 
