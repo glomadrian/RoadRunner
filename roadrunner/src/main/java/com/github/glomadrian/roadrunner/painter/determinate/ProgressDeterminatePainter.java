@@ -48,6 +48,10 @@ public class ProgressDeterminatePainter extends RoadRunnerPainter
         paint.setStrokeWidth(strokeWidth);
     }
 
+    public Paint getPaint() {
+        return paint;
+    }
+
     private void initLineMovement() {
         movementLinePoints = getNumberOfLinePointsInRange(movementLineSize);
     }

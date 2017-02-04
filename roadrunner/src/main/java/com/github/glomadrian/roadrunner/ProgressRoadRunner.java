@@ -3,6 +3,7 @@ package com.github.glomadrian.roadrunner;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.Log;
 
@@ -11,6 +12,7 @@ import com.github.glomadrian.roadrunner.painter.configuration.PathPainterConfigu
 import com.github.glomadrian.roadrunner.painter.configuration.factory.PathPainterConfigurationFactory;
 import com.github.glomadrian.roadrunner.painter.determinate.DeterminatePainter;
 import com.github.glomadrian.roadrunner.painter.determinate.DeterminatePathPainter;
+import com.github.glomadrian.roadrunner.painter.determinate.ProgressDeterminatePainter;
 import com.github.glomadrian.roadrunner.painter.determinate.factory.DeterminatePainterFactory;
 import com.github.glomadrian.roadrunner.path.PathContainer;
 import com.github.glomadrian.roadrunner.utils.AssertUtils;
@@ -32,7 +34,7 @@ public class ProgressRoadRunner extends RoadRunner {
     private int originalHeight;
     private String pathData;
     private PathContainer pathContainer;
-    private DeterminatePathPainter progressDeterminatePainter;
+    private ProgressDeterminatePainter progressDeterminatePainter;
 
     private int min = 0;
     private int max = 100;
@@ -60,6 +62,10 @@ public class ProgressRoadRunner extends RoadRunner {
         super(context, attrs, defStyleAttr);
         initPath(attrs);
         initConfiguration(attrs);
+    }
+
+    public Paint getPaint() {
+        return progressDeterminatePainter.getPaint();
     }
 
     public void setProgress(int value) {
@@ -148,7 +154,7 @@ public class ProgressRoadRunner extends RoadRunner {
     }
 
     private void initPathPainter() {
-        progressDeterminatePainter = DeterminatePainterFactory.makeIndeterminatePathPainter(
+        progressDeterminatePainter = (ProgressDeterminatePainter) DeterminatePainterFactory.makeIndeterminatePathPainter(
                 DeterminatePainter.PROGRESS, pathContainer, this, pathPainterConfiguration);
     }
 
