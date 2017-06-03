@@ -15,6 +15,7 @@ import com.github.glomadrian.pathloading.ui.determinate.DeterminateViewFragment;
 import com.github.glomadrian.pathloading.ui.drag.DragViewFragment;
 import com.github.glomadrian.pathloading.ui.home.HomeViewFragment;
 import com.github.glomadrian.pathloading.ui.material.MaterialViewFragment;
+import com.github.glomadrian.pathloading.ui.progress.ProgressFragment;
 import com.github.glomadrian.pathloading.ui.twoway.TwoWayView;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,28 +43,32 @@ public class MainActivity extends AppCompatActivity {
 
   private void initNavigationView() {
     navigationView.setNavigationItemSelectedListener(
-        new NavigationView.OnNavigationItemSelectedListener() {
-          @Override public boolean onNavigationItemSelected(MenuItem item) {
-            switch (item.getItemId()) {
-              case R.id.home:
-                showHomeView();
-                return true;
-              case R.id.drag_sample:
-                dragSampleMenuTouch();
-                return true;
-              case R.id.determinate_sample:
-                determinateSampleMenuTouch();
-                return true;
-              case R.id.material_sample:
-                materialSampleMenuTouch();
-                return true;
-              case R.id.two_way_sample:
-                twoWaylSampleMenuTouch();
-                return true;
-            }
-            return false;
-          }
-        });
+            new NavigationView.OnNavigationItemSelectedListener() {
+              @Override
+              public boolean onNavigationItemSelected(MenuItem item) {
+                switch (item.getItemId()) {
+                  case R.id.home:
+                    showHomeView();
+                    return true;
+                  case R.id.drag_sample:
+                    dragSampleMenuTouch();
+                    return true;
+                  case R.id.determinate_sample:
+                    determinateSampleMenuTouch();
+                    return true;
+                  case R.id.material_sample:
+                    materialSampleMenuTouch();
+                    return true;
+                  case R.id.two_way_sample:
+                    twoWaySampleMenuTouch();
+                    return true;
+                  case R.id.progress_sample:
+                    progressSampleMenuTouch();
+                    return true;
+                }
+                return false;
+              }
+            });
   }
 
   private void configureToolbar() {
@@ -96,8 +101,13 @@ public class MainActivity extends AppCompatActivity {
     closeNav();
   }
 
-  private void twoWaylSampleMenuTouch() {
+  private void twoWaySampleMenuTouch() {
     showTwoWayView();
+    closeNav();
+  }
+
+  private void progressSampleMenuTouch() {
+    showProgressView();
     closeNav();
   }
 
@@ -127,6 +137,12 @@ public class MainActivity extends AppCompatActivity {
     getSupportFragmentManager().beginTransaction()
         .replace(R.id.content_frame, TwoWayView.newInstance())
         .commit();
+  }
+
+  private void showProgressView() {
+    getSupportFragmentManager().beginTransaction()
+            .replace(R.id.content_frame, ProgressFragment.newInstance())
+            .commit();
   }
 
   private void showHomeView() {

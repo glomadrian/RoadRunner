@@ -1,6 +1,14 @@
 language: android
+
+# installing Java 8 JDK is required to prevent getting "Unsupported major.minor version 52.0" error
+jdk:
+ - oraclejdk8
+
 android:
   components:
+    - tools
+    - platform-tools
+    - tools
     - build-tools-23.0.2
     - android-23
 
@@ -8,6 +16,9 @@ android:
     - extra-google-m2repository
     - extra-android-m2repository
     - extra-android-support
+
+  licenses:
+    - 'android-sdk-license-.+'
 
 script:
   ./gradlew build
