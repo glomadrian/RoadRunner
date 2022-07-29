@@ -7,8 +7,9 @@
 </center>
 </br>
 <p>
-Road Runner is a library for android which allow you to make your own loading
-animation using a SVG image
+      
+## Overview 
+Road Runner is a library for android that allows you to make your own loading animations using SVG images.
 <p/>
 
 
@@ -19,6 +20,7 @@ animation using a SVG image
 <a href="https://play.google.com/store/apps/details?id=com.github.glomadrian.pathloading">
 <img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get on google play" height="60" border="0">
 </a>
+
 #### Road Runner intro
 <center>
 <img src="./art/roadRunner.gif " alt="Drawing"  width="250" />
